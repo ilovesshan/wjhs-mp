@@ -18,6 +18,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <van-button type="primary">{{motto}}</van-button>
   </view>
 </view>

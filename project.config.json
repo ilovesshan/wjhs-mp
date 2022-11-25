@@ -24,8 +24,13 @@
     "uploadWithSourceMap": true,
     "enhance": true,
     "showShadowRootInWxmlPanel": true,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram/"
+      }
+    ],
     "minifyWXSS": true,
     "useStaticServer": true,
     "showES6CompileOption": false,
