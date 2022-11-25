@@ -1,13 +1,44 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/home",
+    "pages/category/category",
+    "pages/appointment/appointment",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "网捷回收",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/assets/images/tabbar/home.png",
+        "selectedIconPath": "/assets/images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "回收分类",
+        "iconPath": "/assets/images/tabbar/category.png",
+        "selectedIconPath": "/assets/images/tabbar/category-active.png"
+      },
+      {
+        "pagePath": "pages/appointment/appointment",
+        "text": "快速预约",
+        "iconPath": "/assets/images/tabbar/appointment.png",
+        "selectedIconPath": "/assets/images/tabbar/appointment-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/assets/images/tabbar/profile.png",
+        "selectedIconPath": "/assets/images/tabbar/profile-active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
