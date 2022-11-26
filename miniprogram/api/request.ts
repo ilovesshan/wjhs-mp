@@ -14,6 +14,15 @@ const post = (uri: string, data?: ALLOW_DATA): Promise<any> => {
   return baseRequest(uri, "POST", data);
 }
 
+const put = (uri: string, data?: ALLOW_DATA): Promise<any> => {
+  return baseRequest(uri, "PUT", data);
+}
+
+const delete_ = (uri: string, data?: ALLOW_DATA): Promise<any> => {
+  return baseRequest(uri, "DELETE", data);
+}
+
+
 const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA): Promise<any> => {
   return new Promise((resolve, reject) => {
     wx.showLoading({ title: "加载中..." })
@@ -46,5 +55,5 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA): Pro
 
 
 export {
-  get, post
+  get, post, delete_, put
 }
