@@ -1,6 +1,6 @@
 import Cache from "../utils/cache"
 
-const BASE_URL: string = "http://4897033.cpolar.cn";
+const BASE_URL: string = "https://4897033.cpolar.cn";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
