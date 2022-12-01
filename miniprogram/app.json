@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/auth/auth",
     "pages/home/home",
     "pages/category/category",
     "pages/appointment/appointment",
@@ -13,8 +14,7 @@
   },
   "tabBar": {
     "custom": false,
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/assets/images/tabbar/home.png",

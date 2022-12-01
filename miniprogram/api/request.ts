@@ -1,6 +1,6 @@
 import Cache from "../utils/cache"
 
-const BASE_URL: string = "https://32f38232.cpolar.cn";
+const BASE_URL: string = "http://4897033.cpolar.cn";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
@@ -35,7 +35,7 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA): Pro
       },
       success: res => {
         if (res.statusCode == 200) {
-          resolve(res)
+          resolve(res.data)
         } else {
           // 请求失败情况(业务逻辑)
           if (res.statusCode == 401) {
