@@ -1,1 +1,26 @@
-/* pages/profile/profile.wxss */
+@import "../../theme.less";
+
+.peofile-container {
+
+  .userinfo {
+    width: 100vw;
+    height: 260rpx;
+    background-color: @primaryColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .userinfo-avatar {
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 60rpx;
+      margin-bottom: 20rpx;
+    }
+
+    .userinfo-nickname {
+      font-size: 36rpx;
+      color: white;
+    }
+  }
+}
