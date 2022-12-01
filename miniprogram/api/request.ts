@@ -6,26 +6,28 @@ type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "T
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
 
 
-const get = (uri: string, query?: ALLOW_DATA): Promise<any> => {
-  return baseRequest(uri, "GET", query);
+const get = (uri: string, query?: ALLOW_DATA, loading: boolean = true): Promise<any> => {
+  return baseRequest(uri, "GET", query, loading);
 }
 
-const post = (uri: string, data?: ALLOW_DATA): Promise<any> => {
-  return baseRequest(uri, "POST", data);
+const post = (uri: string, data?: ALLOW_DATA, loading: boolean = true): Promise<any> => {
+  return baseRequest(uri, "POST", data, loading);
 }
 
-const put = (uri: string, data?: ALLOW_DATA): Promise<any> => {
-  return baseRequest(uri, "PUT", data);
+const put = (uri: string, data?: ALLOW_DATA, loading: boolean = true): Promise<any> => {
+  return baseRequest(uri, "PUT", data, loading);
 }
 
-const delete_ = (uri: string, data?: ALLOW_DATA): Promise<any> => {
-  return baseRequest(uri, "DELETE", data);
+const delete_ = (uri: string, data?: ALLOW_DATA, loading: boolean = true): Promise<any> => {
+  return baseRequest(uri, "DELETE", data, loading);
 }
 
 
-const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA): Promise<any> => {
+const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, loading: boolean = true): Promise<any> => {
   return new Promise((resolve, reject) => {
-    wx.showLoading({ title: "加载中..." })
+    if (loading) {
+      wx.showLoading({ title: "加载中..." })
+    }
     wx.request({
       url: `${BASE_URL}${uri}`,
       method,
@@ -48,7 +50,11 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA): Pro
         console.log(err);
         reject(err);
       },
-      complete: () => wx.hideLoading()
+      complete: () => {
+        if (loading) {
+          wx.hideLoading()
+        }
+      }
     })
   });
 }
