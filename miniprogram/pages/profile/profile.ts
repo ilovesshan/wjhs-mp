@@ -1,3 +1,5 @@
+import Cache from "../../utils/cache";
+
 Page({
   data: {
     userInfo: {},
@@ -10,6 +12,13 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+
+    if (Cache.get("userInfo")) {
+      this.setData({
+        hasUserInfo: true,
+        userInfo: Cache.get("userInfo"),
+      })
+    }
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
@@ -17,7 +26,7 @@ Page({
     wx.getUserProfile({
       desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log(res);
+        Cache.set("userInfo", res.userInfo);
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
