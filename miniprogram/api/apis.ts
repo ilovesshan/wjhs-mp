@@ -1,7 +1,10 @@
+import { get, post } from "./request";
+
 // 获取openID接口
-
-import { post } from "./request";
-
 export function requestOpenId(code: string) {
   return post(`/wx/auth?code=${code}`, {}, false)
+}
+
+export function requestUserInfo(userId: string) {
+  return get(`/wx/users/${userId}`, {}, false)
 }

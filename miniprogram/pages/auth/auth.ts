@@ -1,4 +1,4 @@
-import { requestOpenId } from "../../api/apis";
+import { requestOpenId, requestUserInfo } from "../../api/apis";
 import Cache from "../../utils/cache";
 
 Page({
@@ -11,6 +11,11 @@ Page({
           if (res.code === 200) {
             Cache.set("userId", res.data.id);
             Cache.set("openId", res.data.openId);
+
+            // 获取用户信息
+            requestUserInfo(res.data.id).then(res => {
+              console.log(res);
+            })
 
             // 跳到首页
             wx.switchTab({
