@@ -1,6 +1,6 @@
 import Cache from "../utils/cache"
 
-const BASE_URL: string = "https://4897033.cpolar.cn";
+const BASE_URL: string = "http://114.55.32.234:8127";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
@@ -42,11 +42,19 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
           // 请求失败情况(业务逻辑)
           if (res.statusCode == 401) {
             // 未授权
-            wx.showToast({ title: "授权信息过期，请重新登录授权", icon: "none" })
+            if ((res.data as any).message != null) {
+              wx.showToast({ title: (res.data as any).message, icon: "none" });
+            } else {
+              wx.showToast({ title: "授权信息过期，请重新登录授权", icon: "none" })
+            }
+          } else {
+            wx.showToast({ title: "服务器繁忙" + ((res.data as any).error || (res.data as any)), icon: "none" })
           }
+          reject(res);
         }
       },
       fail: err => {
+        wx.showToast({ title: "服务器繁忙，请稍后再试", icon: "none" })
         console.log(err);
         reject(err);
       },
