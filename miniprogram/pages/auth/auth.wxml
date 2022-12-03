@@ -1,3 +1,4 @@
 <view class="auth-container">
-  <van-loading type="spinner" size="50" />
+  <van-loading wx:if="{{ isloading }}" type="spinner" size="50" />
+  <van-empty bindtap="tologin" wx:else="" image="error" description="轻触重新加载" />
 </view>

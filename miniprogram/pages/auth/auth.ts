@@ -2,7 +2,15 @@ import { requestOpenId, requestUserInfo } from "../../api/apis";
 import Cache from "../../utils/cache";
 
 Page({
+  data: {
+    isLoading: false,
+  },
   onLoad() {
+    this.tologin();
+  },
+
+  tologin() {
+    this.setData({ isloading: true })
     // 登录
     wx.login({
       success: response => {
@@ -22,8 +30,11 @@ Page({
               url: "/pages/home/home",
             })
           }
+        }, error => {
+          this.setData({ isloading: false })
         })
       },
     })
   }
+
 })
