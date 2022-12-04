@@ -9,3 +9,8 @@ export function requestOpenId(code: string) {
 export function requestUserInfo(userId: string) {
   return get(`/wx/users/${userId}`, {}, false)
 }
+
+// 获取数据字典接口
+export function requestSystemDict() {
+  return get(`/systemDict`, {}, false)
+}

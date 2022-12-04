@@ -30,7 +30,7 @@ Page({
               url: "/pages/home/home",
             })
           }
-        }, error => {
+        }, _ => {
           this.setData({ isloading: false })
         })
       },
