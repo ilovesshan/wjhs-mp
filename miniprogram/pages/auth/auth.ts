@@ -1,4 +1,4 @@
-import { requestOpenId, requestUserInfo } from "../../api/apis";
+import { requestOpenId, requestSystemDict, requestUserInfo } from "../../api/apis";
 import Cache from "../../utils/cache";
 
 Page({
@@ -22,9 +22,14 @@ Page({
 
             // 获取用户信息
             requestUserInfo(res.data.id).then(res => {
-              console.log(res);
+              Cache.set("userInfo", res.data);
             })
 
+            // 获取数据字典
+            requestSystemDict().then(res => {
+              Cache.set("systemDict", res.data);
+            })
+            
             // 跳到首页
             wx.switchTab({
               url: "/pages/home/home",
