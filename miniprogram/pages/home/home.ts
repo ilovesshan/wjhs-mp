@@ -63,10 +63,12 @@ Page({
     });
   },
 
-
-  getData() {
-    requestSystemDict().then(res => {
-      console.log(res);
-    })
+  toWebview(e: any) {
+    const index = e.target.dataset.index;
+    const pageTitle = this.data.swiperList[index].title;
+    const pagePath = this.data.swiperList[index].link;
+    wx.navigateTo({
+      url: `/components/webView/webView?pageTitle=${pageTitle}&pagePath=${pagePath}`,
+  });
   }
 })

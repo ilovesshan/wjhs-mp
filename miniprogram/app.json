@@ -4,7 +4,8 @@
     "pages/home/home",
     "pages/category/category",
     "pages/appointment/appointment",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "components/webView/webView"
   ],
   "window": {
     "backgroundTextStyle": "light",
