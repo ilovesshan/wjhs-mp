@@ -1,4 +1,5 @@
-import { requestNotice, requestSwiper, requestSystemDict } from "../../api/apis";
+import { requestNotice, requestSwiper } from "../../api/apis";
+import { BASE_URL } from "../../api/request";
 
 interface IAttachment {
   id: string,
@@ -49,8 +50,12 @@ Page({
 
   getSwiper() {
     requestSwiper().then(res => {
+      const list = res.data.map((item: ISwiper) => {
+        item.attachment.url = BASE_URL + item.attachment.url;
+        return item;
+      })
       this.setData({
-        swiperList: res.data,
+        swiperList: list,
       })
     });
   },
@@ -58,7 +63,7 @@ Page({
   getNotice() {
     requestNotice().then(res => {
       this.setData({
-        noticeList: res.data,
+        noticeList: res.data.slice(0, 2),
       })
     });
   },
@@ -69,6 +74,18 @@ Page({
     const pagePath = this.data.swiperList[index].link;
     wx.navigateTo({
       url: `/components/webView/webView?pageTitle=${pageTitle}&pagePath=${pagePath}`,
-  });
+    });
+  },
+
+
+  toNoticeDetail(e: any) {
+    const index = e.target.dataset.index;
+    const { noticeList } = this.data;
+    const title = noticeList[index].title;
+    const subTitle = noticeList[index].subTitle;
+    const detail = noticeList[index].detail;
+    wx.navigateTo({
+      url: `/pages/home/pages/notice_detail?title=${title}&subTitle=${subTitle}&detail=${detail}`,
+    });
   }
 })

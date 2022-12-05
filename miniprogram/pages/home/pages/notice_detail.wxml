@@ -1,0 +1,4 @@
+<view class="notice-detail-page">
+  <view class="sub-title">{{ subTitle}}</view>
+  <view class="detail">{{ detail}}</view>
+</view>

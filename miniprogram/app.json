@@ -5,7 +5,8 @@
     "pages/category/category",
     "pages/appointment/appointment",
     "pages/profile/profile",
-    "components/webView/webView"
+    "components/webView/webView",
+    "pages/home/pages/notice_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,7 +16,8 @@
   },
   "tabBar": {
     "custom": false,
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/assets/images/tabbar/home.png",
