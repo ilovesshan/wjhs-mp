@@ -14,3 +14,13 @@ export function requestUserInfo(userId: string) {
 export function requestSystemDict() {
   return get(`/systemDict`, {}, false)
 }
+
+// 获取轮播图数据接口
+export function requestSwiper() {
+  return get(`/swiper?type=31`, {}, false)
+}
+
+// 获取通知公告接口
+export function requestNotice() {
+  return get(`/notice?type=31`, {}, false)
+}
