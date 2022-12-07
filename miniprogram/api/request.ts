@@ -1,7 +1,7 @@
 import Cache from "../utils/cache"
 
 // const BASE_URL: string = "http://114.55.32.234:8127";
-const BASE_URL: string = "http://127.0.0.1";
+const BASE_URL: string = "https://76d427ba.r2.vip.cpolar.cn";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
@@ -73,5 +73,5 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
 
 
 export {
-  get, post, delete_, put
+  get, post, delete_, put, BASE_URL
 }
