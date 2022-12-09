@@ -1,0 +1,108 @@
+@import "../../../../theme.less";
+
+.user-detail-info-wrapper {
+  width: 750rpx;
+  height: 100vh;
+  background-color: #f3f4f4;
+  padding-top: 20rpx;
+}
+
+.form-item {
+  height: 108rpx;
+  /* width: 680rpx; */
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #F3F4F4;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx;
+}
+
+.form-item:nth-child(1) {
+  border-radius: 10rpx 10rpx;
+}
+
+.form-item:nth-child(4) {
+  border-radius: 10rpx 10rpx;
+}
+
+
+.item-label {
+  color: rgba(16, 16, 16, 100);
+  font-size: 32rpx;
+  font-family: PingFangSC-regular;
+  margin-right: 40rpx;
+}
+
+.item-input-placeholder {
+  font-size: 28rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #999999;
+}
+
+.item-input {
+  flex: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC-Bold, PingFang SC;
+  font-weight: bold;
+  color: #222222;
+}
+
+.item-avatar{
+  flex: 1;
+  width: 138rpx;
+  display: flex;
+  align-items: center;
+  height: 108rpx;
+
+  .van-uploader{
+    width: 88rpx !important;
+    height: 88rpx !important;
+
+    .van-uploader__upload, .van-uploader__wrapper{
+      width: 88rpx !important;
+      height: 88rpx !important;
+
+      .van-uploader__preview{
+        width: 88rpx !important;
+        height: 88rpx !important;
+
+        .van-uploader__preview-image{
+          width: 88rpx !important;
+          height: 88rpx !important;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+.item-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.btns {
+  position: fixed;
+  bottom: 68rpx;
+  left: 0;
+  right: 0;
+}
+
+.save-user-info {
+  height: 88rpx;
+  line-height: 88rpx;
+  margin: 0 30rpx;
+  border-radius: 45rpx;
+  text-align: center;
+}
+
+.save-user-info {
+  background-color: @primaryColor;
+  font-size: 32rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}

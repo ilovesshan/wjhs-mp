@@ -1,12 +1,10 @@
 <view class="peofile-container">
-  <view class="userinfo">
-    <block wx:if="{{!hasUserInfo}}">
-      <van-button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" round  plain type="primary">获取头像昵称</van-button>
-      <van-button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" round plain type="primary">获取头像昵称</van-button>
-    </block>
-    <block wx:else>
-      <image bindtap="getUserProfile" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="userinfo" bindtap="toUserDetailInfoPage">
+    <image class="userinfo-avatar" src="{{ userInfo.avatarUrl.length>0 ? BASE_URL + userInfo.avatarUrl : '/assets/images/profile/default-user-avatar.png' }}"></image>
+    <text class="userinfo-nickname">{{ userInfo.nickName || '网捷回收' }}</text>
+    <view class="userinfo-detail" bindtap="userCardDetailClick">
+      <text class="text">详细</text>
+      <image class="icon" src="../../assets/images/profile/right-arrow.png"></image>
+    </view>
   </view>
 </view>

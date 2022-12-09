@@ -6,7 +6,8 @@
     "pages/appointment/appointment",
     "pages/profile/profile",
     "components/webView/webView",
-    "pages/home/pages/notice_detail"
+    "pages/home/pages/notice_detail",
+    "pages/profile/pages/user-detail-info/user-detail-info"
   ],
   "window": {
     "backgroundTextStyle": "light",

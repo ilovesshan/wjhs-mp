@@ -4,12 +4,13 @@
 
   .userinfo {
     width: 100vw;
-    height: 260rpx;
+    height: 200rpx;
     background-color: @primaryColor;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
 
     .userinfo-avatar {
       width: 120rpx;
@@ -19,8 +20,28 @@
     }
 
     .userinfo-nickname {
-      font-size: 36rpx;
-      color: white;
+      font-size: 44rpx;
+      color: @whiteColor;
+      font-weight: normal;
+      margin-left: -120rpx;
+    }
+
+    .userinfo-detail {
+      height: 50rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text {
+        font-size: 34rpx;
+        color: @whiteColor;
+      }
+
+      .icon {
+        margin-left: 20rpx;
+        width: 14rpx;
+        height: 24rpx;
+      }
     }
   }
 }
