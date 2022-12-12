@@ -1,6 +1,9 @@
+@import "./theme.less";
+
 page {
   // 覆盖 vant默认样式 参考(https://github.com/youzan/vant-weapp/blob/dev/packages/common/style/var.less)
-  --notice-bar-background-color: #f9fafa;
-  --notice-bar-text-color: #2bc58b;
+  --notice-bar-background-color: @whiteColor;
+  --notice-bar-text-color: @primaryColor;
   --notice-bar-font-size: 32rpx;
+  --sidebar-selected-border-color: @primaryColor;
 }

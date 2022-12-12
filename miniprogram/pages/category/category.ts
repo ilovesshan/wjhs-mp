@@ -1,66 +1,66 @@
-// pages/category/category.ts
+import { BASE_URL } from "../../api/request";
+import { requesRecycleGoods } from "../../api/apis";
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    isSearch: false,
+    BASE_URL: BASE_URL,
+    currentIndex: 0,
+    kw: "",
+    searchResult: [1],
+    navItems: [],
+    recycleGoodList: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad() {
-
+    requesRecycleGoods().then(res => {
+      if (res.code == 200 && res.data) {
+        this.setData({
+          recycleGoodList: res.data,
+          navItems: res.data.map((goodsType: { name: any; }) => ({ text: goodsType.name }))
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onClickNav(event: { detail: { index: any; }; }) {
+    this.setData({
+      currentIndex: event.detail.index
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  onSearch(e: { detail: string }) {
+    this.setData({
+      searchResult: []
+    });
+    if (e.detail === "") {
+      this.setData({
+        isSearch: false,
+      })
+      return;
+    }
 
+    const searchResult: Array<any> = [];
+    this.data.recycleGoodList.forEach((item: { name: String, recycleGoods: [] }) => {
+      if (item.name.includes(e.detail)) {
+        searchResult.push(...item.recycleGoods);
+      } else {
+        item.recycleGoods.forEach((goods: { name: string }) => {
+          if (goods.name.includes(e.detail)) {
+            searchResult.push(goods);
+          }
+        });
+      }
+    });
+
+    this.setData({
+      isSearch: true,
+      searchResult,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onClear() {
+    this.setData({
+      isSearch: false,
+    })
   }
 })

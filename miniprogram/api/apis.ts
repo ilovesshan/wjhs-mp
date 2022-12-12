@@ -25,9 +25,13 @@ export function requestNotice() {
   return get(`/notice?type=31`, {}, false)
 }
 
-
-
 //更新用户信息接口
 export function requesUpdateUser(data: any) {
   return post(`/wx/users`, data, true)
+}
+
+
+// 获取回收商品
+export function requesRecycleGoods() {
+  return get(`/recycleGoods/all`)
 }

@@ -2,7 +2,7 @@ import Cache from "../utils/cache"
 
 // const BASE_URL: string = "http://114.55.32.234:8127";
 // const BASE_URL: string = "http://localhost";
-const BASE_URL: string = "http://192.168.43.36";
+const BASE_URL: string = "http://192.168.1.102";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
