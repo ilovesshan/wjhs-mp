@@ -1,0 +1,57 @@
+<view class="user-detail-info-wrapper">
+  <!-- 昵称 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>昵&nbsp; &nbsp; &nbsp;&nbsp; 称</text>
+    <input placeholder-class="item-input-placeholder" value="{{ userInfo.nickName }}" bindinput="bindNickName" class="item-input" placeholder="请输入" type="text"></input>
+  </view>
+
+  <!-- 头像 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>头&nbsp; &nbsp; &nbsp;&nbsp; 像</text>
+    <van-uploader file-list="{{ avatarList }}" deletable="{{ false }}"  class="item-avatar" max-count="1" bind:after-read="afterRead"/>
+    <van-icon bindtap="clearAvatar" wx:if="{{ avatarList.length != 0}}" name="close" />
+  </view>
+  <!-- 性别 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>性&nbsp; &nbsp; &nbsp;&nbsp; 别</text>
+    <input placeholder-class="item-input-placeholder" bindtap="genderChoose"  value=" {{ userInfo.gender == '20' ? '男' : '女' }}" disabled="true" class="item-input" placeholder="请选择性别" type="text"></input>
+  </view>
+
+  <!-- 国籍选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>省&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</text>
+    <input class="item-input" value="{{ userInfo.country || '中国' }}" disabled="true" type="text"></input>
+  </view>
+
+  <!-- 省选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>省&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</text>
+    <input placeholder-class="item-input-placeholder" bindtap="provinceAndCityChoose" value="{{ userInfo.province }}" disabled="true" class="item-input" placeholder="请选择所在省份" type="text"></input>
+  </view>
+
+  <!-- 市选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>市&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</text>
+    <input placeholder-class="item-input-placeholder" bindtap="provinceAndCityChoose"  value="{{ userInfo.city }}" disabled="true" class="item-input" placeholder="请选择所在市区" type="text"></input>
+  </view>
+
+  <!-- 省市选择 弹出框 -->
+  <van-popup show="{{ showCityPicker }}" position="bottom" custom-style="height: 50%;">
+    <van-area  bind:confirm="onCityPickerConfirm" bind:cancel="onCityPickerCancel" columns-num="2" area-list="{{ areaList }}" />
+  </van-popup>
+
+
+  <!-- 性别选择 弹出框 -->
+  <van-popup show="{{ showGenderPicker }}" position="bottom" custom-style="height: 50%;">
+    <van-area  bind:confirm="onGenderPickerConfirm" bind:cancel="onGenderPickerCancel" columns-num="1" area-list="{{ genderList }}" />
+  </van-popup>
+
+
+  <!-- 保存按钮 -->
+  <view class="btns">
+    <view class="save-user-info" bindtap="saveUserInfo">保存</view>
+  </view>
+
+
+
+</view>

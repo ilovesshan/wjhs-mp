@@ -1,0 +1,18 @@
+<view class="home-container">
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{2000}}" duration="{{500}}">
+    <block wx:for="{{swiperList}}" wx:key="index">
+      <swiper-item class="swiper-item">
+        <image data-index="{{ index }}" bindtap="toWebview" src="{{ item.attachment.url }}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="padding-style">
+    <!-- 通知公告 -->
+    <view class="notice">
+      <view class="title">通知公告</view>
+      <van-notice-bar wx:for="{{ noticeList }}" data-index="{{ index }}"  wx:key="index"  bindtap="toNoticeDetail" left-icon="volume-o" text="{{ item.subTitle}}" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view class="category-page">
+  <!-- 搜索框 -->
+  <van-search value="{{ kw }}" placeholder="请输入搜索关键词" bind:search="onSearch" bind:clear="onClear" />
+
+  <!-- 搜搜结果 -->
+  <view wx:if="{{ isSearch }}">
+    <view wx:if="{{ searchResult.length <= 0}}"><van-empty description="暂无数据" /></view>
+    <view wx:else="">
+      <van-card wx:for="{{ searchResult }}" wx:key="index" price="{{ item.userPrice}} /kg" desc="兑换积分: {{ item.integral }}" title="{{ item.name }}" thumb="{{ BASE_URL + item.attachment.url}}"/>
+    </view>
+  </view>
+
+  <!-- 回收商品列表 -->
+  <van-tree-select wx:else="" items="{{ navItems }}" height="90vh" bind:click-nav="onClickNav">
+    <view wx:for="{{ navItems }}" wx:key="index"  wx:if="{{ currentIndex == index}}" slot="content">
+      <van-card
+        wx:for-index="indez" wx:for="{{ recycleGoodList[currentIndex].recycleGoods.length  }}" wx:key="indez"
+        price="{{ recycleGoodList[currentIndex].recycleGoods[indez].userPrice }} /kg" 
+        title="{{ recycleGoodList[currentIndex].recycleGoods[indez].name }}"
+        tag="{{ navItems[index].text }}"
+        desc="兑换积分: {{ recycleGoodList[currentIndex].recycleGoods[indez].integral }}"
+        thumb="{{BASE_URL + recycleGoodList[currentIndex].recycleGoods[indez].attachment.url }}"
+      />
+    </view>
+  </van-tree-select>
+</view>
