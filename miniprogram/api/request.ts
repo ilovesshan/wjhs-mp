@@ -1,5 +1,6 @@
 import Cache from "../utils/cache"
 
+// const BASE_URL: string = "https://1c7f776a.r3.vip.cpolar.cn";
 // const BASE_URL: string = "http://114.55.32.234:8127";
 // const BASE_URL: string = "http://localhost";
 const BASE_URL: string = "http://192.168.1.102";
