@@ -19,6 +19,7 @@ Page({
       url: "/pages/profile/pages/user-detail-info/user-detail-info"
     })
   },
+  
   // 账户管理
   toAccountManagementPage() { },
 
@@ -33,7 +34,7 @@ Page({
 
   // 联系客服
   toConcatServicePage() { },
-  
+
   // 意见反馈
   toSuggestFeedbackPage() { },
 })
