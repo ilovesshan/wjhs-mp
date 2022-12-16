@@ -12,7 +12,7 @@
         <view class="address">{{ item.province + item.city + item.area + item.detailAddress}}</view>
       </view>
       <view class="row3">
-        <van-tag wx:if="{{item.id == currentSelectAddressId}}" plain size="large" type="success">使用当前地址</van-tag>
+        <van-tag wx:if="{{item.id == currentSelectAddressId}}" plain size="large" type="success">当前选择地址</van-tag>
         <view data-id="{{ item.id }}" bindtap="editAddress" class="edit-text">编辑</view>
         <view data-item="{{ item }}" bindtap="useAddresss" wx:if="{{ currentSelectAddressId }}" class="use-text">使用</view>
         <view data-id="{{ item.id }}" bindtap="deleteAddress" class="delete-text">删除</view>
