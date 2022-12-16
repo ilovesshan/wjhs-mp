@@ -1,5 +1,26 @@
 @import "./theme.less";
 
+.bottom-btn-container {
+  position: fixed;
+  bottom: 68rpx;
+  left: 0;
+  right: 0;
+
+  .btn{
+    height: 88rpx;
+    line-height: 88rpx;
+    margin: 0 30rpx;
+    border-radius: 45rpx;
+    text-align: center;
+    background-color: @primaryColor;
+    font-size: 32rpx;
+    font-family: PingFang SC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+
+}
+
 page {
   // 覆盖 vant默认样式 参考(https://github.com/youzan/vant-weapp/blob/dev/packages/common/style/var.less)
   --notice-bar-background-color: @whiteColor;

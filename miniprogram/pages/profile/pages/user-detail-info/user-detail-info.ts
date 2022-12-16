@@ -10,7 +10,7 @@ Page({
     showCityPicker: false,
     showGenderPicker: false,
     userInfo: {},
-    avatarList: [],
+    avatarList: [] as Array<{ url: string }>,
   },
   onLoad() {
     this.setData({
@@ -32,7 +32,7 @@ Page({
     })
   },
 
-  onCityPickerConfirm(data: any) {
+  onCityPickerConfirm(data:  WechatMiniprogram.TouchEvent) {
     const [province, city] = data.detail.values;
     this.setData({
       showCityPicker: false,
@@ -44,7 +44,7 @@ Page({
     })
   },
 
-  onGenderPickerConfirm(data: any) {
+  onGenderPickerConfirm(data:  WechatMiniprogram.TouchEvent) {
     const [gender] = data.detail.values;
     this.setData({
       showGenderPicker: false,
@@ -67,7 +67,7 @@ Page({
     })
   },
 
-  afterRead(event: any) {
+  afterRead(event:  WechatMiniprogram.TouchEvent) {
     const { file } = event.detail;
     wx.uploadFile({
       url: BASE_URL + '/attachments',
@@ -107,7 +107,7 @@ Page({
     });
   },
 
-  bindNickName(e: any) {
+  bindNickName(e:  WechatMiniprogram.TouchEvent) {
     this.setData({
       ['userInfo.nickName']: e.detail.value
     })

@@ -1,0 +1,27 @@
+<view class="address-management-page">
+  <van-empty wx:if="{{ addressList.length == 0 }}" description="暂无地址信息" />
+
+  <view wx:else="">
+    <view wx:for="{{ addressList }}" class="address-item" wx:key="index">
+      <view class="row1">
+        <view class="name">{{ item.userName}}</view>
+        <view class="phone">{{ item.phone}}</view>
+        <van-tag wx:if="{{ item.isDefault == '18'}}" class="tag" type="danger">默认</van-tag>
+      </view>
+      <view class="row2">
+        <view class="address">{{ item.province + item.city + item.area + item.detailAddress}}</view>
+      </view>
+      <view class="row3">
+        <van-tag wx:if="{{item.id == currentSelectAddressId}}" plain size="large" type="success">使用当前地址</van-tag>
+        <view data-id="{{ item.id }}" bindtap="editAddress" class="edit-text">编辑</view>
+        <view data-item="{{ item }}" bindtap="useAddresss" wx:if="{{ currentSelectAddressId }}" class="use-text">使用</view>
+        <view data-id="{{ item.id }}" bindtap="deleteAddress" class="delete-text">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新增地址按钮 -->
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="addAddress">新增地址</view>
+  </view>
+</view>

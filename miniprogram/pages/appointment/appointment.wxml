@@ -1,2 +1,4 @@
-<!--pages/appointment/appointment.wxml-->
-<text>pages/appointment/appointment.wxml</text>
+<view bindtap="chooseAddress">选择获取收货地址</view>
+<view>{{ defaultAddress.phone }}</view>
+<view>{{ defaultAddress.userName }}</view>
+<view>{{ defaultAddress.detailAddress }}</view>

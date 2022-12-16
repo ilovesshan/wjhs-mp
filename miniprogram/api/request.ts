@@ -53,8 +53,11 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
             wx.navigateTo({
               url: "/pages/auth/auth"
             })
+            // 一般是参数不完整导致
+          } else if (res.statusCode == 400) {
+            wx.showToast({ title: (res.data as any).message, icon: "none" });
           } else {
-            wx.showToast({ title: "服务器繁忙" + ((res.data as any).error || (res.data as any)), icon: "none" })
+            wx.showToast({ title: "服务器繁忙1" + ((res.data as any).error || (res.data as any)), icon: "none" })
           }
           reject(res);
         }

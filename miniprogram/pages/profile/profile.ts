@@ -19,22 +19,31 @@ Page({
       url: "/pages/profile/pages/user-detail-info/user-detail-info"
     })
   },
-  
+
   // 账户管理
   toAccountManagementPage() { },
 
+
   // 地址管理
-  toAddressManagementPage() { },
+  toAddressManagementPage() {
+    wx.navigateTo({
+      url: "/pages/profile/pages/address-management/address-management"
+    })
+  },
+
 
   // 兑换中心
   toExchangeCenterPage() { },
 
+
   // 订单中心
   toOrderCenterPage() { },
+
 
   // 联系客服
   toConcatServicePage() { },
 
+  
   // 意见反馈
   toSuggestFeedbackPage() { },
 })

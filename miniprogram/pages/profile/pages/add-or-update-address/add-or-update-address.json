@@ -5,5 +5,5 @@
     "van-uploader": "@vant/weapp/uploader/index",
     "van-icon": "@vant/weapp/icon/index"
   },
-  "navigationBarTitleText": "个人详情"
+  "navigationBarTitleText": "地址管理"
 }
