@@ -1,9 +1,10 @@
+import type { IAddress } from '../../../../interfaces/address';
 import { deleteAddressById, requesUserAddressList } from "../../../../api/apis"
 
 Page({
   data: {
     currentSelectAddressId: "",
-    addressList: [],
+    addressList: [] as Array<IAddress>,
     isChooseAddress: false,
   },
 

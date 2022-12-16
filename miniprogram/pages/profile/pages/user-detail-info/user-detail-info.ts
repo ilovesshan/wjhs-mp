@@ -1,4 +1,5 @@
 import { areaList } from '@vant/area-data';
+import type { IUserInfo } from 'miniprogram/interfaces/user';
 import { requesUpdateUser, requestUserInfo } from '../../../../api/apis';
 import { BASE_URL } from "../../../../api/request";
 import Cache from "../../../../utils/cache";
@@ -9,7 +10,7 @@ Page({
     genderList: { province_list: { 20: '男', 21: '女' } },
     showCityPicker: false,
     showGenderPicker: false,
-    userInfo: {},
+    userInfo: {} as IUserInfo,
     avatarList: [] as Array<{ url: string }>,
   },
   onLoad() {

@@ -2,13 +2,12 @@ import { areaList } from '@vant/area-data';
 import { getlocationByAddress } from '../../../../api/map';
 import { insertAddress, requesUserAddressById, updateAddress } from '../../../../api/apis';
 import { parseAddress } from '../../../../utils/parseAddress';
+import type { IAddress } from '../../../../interfaces/address';
 
 Page({
   data: {
     areaList: areaList,
-    addressData: {} as {
-      id?: string, province: string, city: string, area: string, detailAddress: string,
-    },
+    addressData: {} as IAddress,
   },
   async onLoad(params: { id: string }) {
     if (params.id) {
@@ -26,7 +25,7 @@ Page({
     })
   },
 
-  onCityPickerConfirm(data: any) {
+  onCityPickerConfirm(data:  WechatMiniprogram.TouchEvent) {
     const [province, city, area] = data.detail.values;
     this.setData({
       showCityPicker: false,
@@ -43,25 +42,25 @@ Page({
     })
   },
 
-  defaultAddressBindchange(e: any) {
+  defaultAddressBindchange(e: WechatMiniprogram.TouchEvent) {
     this.setData({
       ['addressData.isDefault']: !e.detail.value ? '19' : '18'
     })
   },
 
-  binduserName(e: any) {
+  binduserName(e: WechatMiniprogram.TouchEvent) {
     this.setData({
       ['addressData.userName']: e.detail.value
     })
   },
 
-  bindPhone(e: any) {
+  bindPhone(e: WechatMiniprogram.TouchEvent) {
     this.setData({
       ['addressData.phone']: e.detail.value
     })
   },
 
-  bindDetailAddress(e: any) {
+  bindDetailAddress(e: WechatMiniprogram.TouchEvent) {
     this.setData({
       ['addressData.detailAddress']: e.detail.value
     })

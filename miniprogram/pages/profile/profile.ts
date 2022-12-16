@@ -1,10 +1,11 @@
+import { IUserInfo } from "../../interfaces/user";
 import { BASE_URL } from "../../api/request";
 import Cache from "../../utils/cache";
 
 Page({
   data: {
     BASE_URL: "",
-    userInfo: {},
+    userInfo: {} as IUserInfo,
   },
   onShow() {
     this.setData({
@@ -43,7 +44,7 @@ Page({
   // 联系客服
   toConcatServicePage() { },
 
-  
+
   // 意见反馈
   toSuggestFeedbackPage() { },
 })

@@ -1,6 +1,8 @@
+import type { IAddress } from '../../interfaces/address';
+
 Page({
   data: {
-    defaultAddress: {},
+    defaultAddress: {} as IAddress,
   },
 
   chooseAddress() {
