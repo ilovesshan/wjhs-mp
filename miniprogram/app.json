@@ -9,7 +9,9 @@
     "pages/home/pages/notice_detail",
     "pages/profile/pages/user-detail-info/user-detail-info",
     "pages/profile/pages/address-management/address-management",
-    "pages/profile/pages/add-or-update-address/add-or-update-address"
+    "pages/profile/pages/add-or-update-address/add-or-update-address",
+    "components/order-success/order-success",
+    "pages/profile/pages/order-center/order-center"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +21,8 @@
   },
   "tabBar": {
     "custom": false,
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "/assets/images/tabbar/home.png",
@@ -53,7 +56,6 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-
   "requiredPrivateInfos": [
     "getLocation",
     "chooseLocation",

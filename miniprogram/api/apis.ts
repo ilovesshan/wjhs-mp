@@ -1,3 +1,4 @@
+import { IOrder, IOrderUpdate } from "miniprogram/interfaces/order";
 import { get, post, put, delete_ } from "./request";
 
 // 获取openID接口
@@ -59,4 +60,21 @@ export function updateAddress(data: any) {
 // 根据ID删除地址
 export function deleteAddressById(id: string) {
   return delete_(`/wx/address/${id}`)
+}
+
+
+// 预约回收 下单
+export function requestRecycleOrders(data: IOrder) {
+  return post(`/recycleOrders`, data)
+}
+
+
+// 预约回收 取消订单
+export function updateRecycleOrdersStatus(data: IOrderUpdate) {
+  return put(`/recycleOrders`, data)
+}
+
+// 预约回收 获取订单列表
+export function requestRecycleOrdersByStatus(status: number) {
+  return get(`/recycleOrders?status=${status}`)
 }

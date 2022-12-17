@@ -1,0 +1,12 @@
+<view class="order-success-page">
+  <view class="logo">
+    <van-icon name="passed" color="green" size="120rpx" />
+    <view class="resuil">下单成功</view>
+  </view>
+
+  <view class="btns">
+    <van-button class="re_home" type="default" catchtap="toHomePage">回到首页</van-button>
+    <van-button class="re_order" type="primary" catchtap="toOrderPage">查看订单</van-button>
+
+  </view>
+</view>

@@ -38,7 +38,11 @@ Page({
 
 
   // 订单中心
-  toOrderCenterPage() { },
+  toOrderCenterPage() {
+    wx.navigateTo({
+      url: "/pages/profile/pages/order-center/order-center"
+    })
+  },
 
 
   // 联系客服

@@ -8,7 +8,7 @@
   "license": "",
   "dependencies": {
     "@vant/area-data": "^1.3.2",
-    "@vant/weapp": "^1.10.7"
+    "@vant/weapp": "^1.10.10"
   },
   "devDependencies": {
     "miniprogram-api-typings": "3.8.1"
