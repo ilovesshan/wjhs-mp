@@ -53,5 +53,17 @@ Page({
     wx.navigateTo({
       url: `/pages/home/pages/notice_detail?title=${title}&subTitle=${subTitle}&detail=${detail}`,
     });
-  }
+  },
+
+  // 立即预约
+  appointmentTap() {
+    wx.switchTab({
+      url: "/pages/appointment/appointment"
+    });
+  },
+
+  // 积分商城
+  integralShoopTap() {
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
 })
