@@ -1,7 +1,7 @@
 import { IGoods, IOrder } from "../../../../interfaces/order";
 import { requestRecycleOrdersByStatus, updateRecycleOrdersStatus } from "../../../../api/apis";
 import { BASE_URL } from '../../../../api/request';
-import Dialog from "miniprogram/miniprogram_npm/@vant/weapp/dialog/dialog";
+import Dialog from '@vant/weapp/dialog/dialog';
 
 Page({
   data: {

@@ -1,4 +1,4 @@
-import { IOrder, IOrderUpdate } from "miniprogram/interfaces/order";
+import { IOrder, IOrderUpdate } from "../interfaces/order";
 import { get, post, put, delete_ } from "./request";
 
 // 获取openID接口
