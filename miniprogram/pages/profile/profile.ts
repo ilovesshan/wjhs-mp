@@ -22,7 +22,11 @@ Page({
   },
 
   // 账户管理
-  toAccountManagementPage() { },
+  toAccountManagementPage() {
+    wx.navigateTo({
+      url: "/pages/profile/pages/account-management/account-management"
+    });
+  },
 
 
   // 地址管理

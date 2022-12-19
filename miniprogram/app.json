@@ -11,7 +11,9 @@
     "pages/profile/pages/address-management/address-management",
     "pages/profile/pages/add-or-update-address/add-or-update-address",
     "components/order-success/order-success",
-    "pages/profile/pages/order-center/order-center"
+    "pages/profile/pages/order-center/order-center",
+    "pages/profile/pages/account-management/account-management",
+    "pages/profile/pages/order-pay/order-pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

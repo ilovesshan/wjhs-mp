@@ -1,0 +1,37 @@
+@import "../../../../theme.less";
+
+.order-pay-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: @backGroundColor;
+  overflow: hidden;
+
+  .title {
+    text-align: center;
+    margin-top: 40rpx;
+  }
+
+  .qr-code {
+    width: 100vw;
+    height: 500rpx;
+    margin: 40rpx auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .order-detail-info {
+    padding: 20rpx;
+
+    view {
+      margin: 20rpx 0;
+
+      &.order-money text,
+      &.order-weight text {
+        color: red;
+        font-weight: 600;
+      }
+    }
+  }
+}

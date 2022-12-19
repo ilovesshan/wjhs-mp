@@ -42,8 +42,6 @@ Page({
 
   // 取消订单
   cancelOrder(e: WechatMiniprogram.TouchEvent) {
-    console.log(1111111);
-    
     Dialog.confirm({
       title: '取消订单',
       message: '亲亲，确定要取消订单吗？',
@@ -65,8 +63,13 @@ Page({
   },
 
   // 结算订单
-  settlementOrder() {
-    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  settlementOrder(e: WechatMiniprogram.TouchEvent) {
+    console.log(e.target.dataset.index);
+    const orderInfo = JSON.stringify(this.data.goodsList[e.target.dataset.index]);
+  
+    wx.navigateTo({
+      url: `/pages/profile/pages/order-pay/order-pay?orderInfo=${orderInfo}`
+    });
   },
 
   // 重新预约

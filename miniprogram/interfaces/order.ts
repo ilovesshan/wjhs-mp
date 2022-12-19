@@ -5,6 +5,7 @@ export interface IGoods {
 }
 
 export interface IOrder {
+  id: string,
   addressId: string,
   appointmentBeginTime: string,
   appointmentEndTime: string,
@@ -25,4 +26,13 @@ export interface IOrderUpdate {
   id: String,
   status: String,
   receiveUserId?: String,
+}
+
+
+export interface IOrderPay {
+  qrPath: string,
+  orderId: string,
+  appointmentTime: string,
+  money: number,
+  weight: number,
 }
