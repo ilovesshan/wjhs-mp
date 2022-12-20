@@ -21,10 +21,10 @@
             <view class="phone">{{ goods.receiveUser.phone}}</view>
           </view>
           <view class="btns">
-            <van-button data-id="{{ goods.id }}" bindtap="cancelOrder" class="cancelOrder" wx:if="{{ goods.status == '4'}}" icon="revoke" size="small" type="danger">取消订单</van-button>
-            <van-button data-phone="{{ goods.receiveUser.phone }}" wx:if="{{ goods.status == '5'}}" bindtap="concatDriver" icon="phone-o" size="small" type="primary">联系骑手</van-button>
-            <van-button data-index="{{ indez }}" wx:if="{{ goods.status == '6'}}" bindtap="settlementOrder" icon="after-sale" size="small" type="primary">点击结算</van-button>
-            <van-button wx:if="{{ goods.status == '8' || goods.status == '9'}}" bindtap="reAppointment" icon="replay" size="small" type="primary">重新预约</van-button>
+            <van-button data-id="{{ goods.id }}" catchtap="cancelOrder" class="cancelOrder" wx:if="{{ goods.status == '4'}}" icon="revoke" size="small" type="danger">取消订单</van-button>
+            <van-button data-phone="{{ goods.receiveUser.phone }}" wx:if="{{ goods.status == '5'}}" catchtap="concatDriver" icon="phone-o" size="small" type="primary">联系骑手</van-button>
+            <van-button data-index="{{ indez }}" wx:if="{{ goods.status == '6'}}" catchtap="settlementOrder" icon="after-sale" size="small" type="primary">点击结算</van-button>
+            <van-button wx:if="{{ goods.status == '8' || goods.status == '9'}}" catchtap="reAppointment" icon="replay" size="small" type="primary">重新预约</van-button>
           </view>
         </view>
       </view>
