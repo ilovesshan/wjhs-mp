@@ -1,3 +1,5 @@
+import { IAttachment } from "./common";
+
 
 export interface IGoods {
   goodsId: string,
@@ -14,12 +16,14 @@ export interface IOrder {
   orderType: string,
   receiveUserId: string,
   status: string,
+  statusText: string,
   submitUserId: string,
   totalIntegral: number,
   totalWeight: number,
   tradingMoney: number,
   showAppointmentTime: string,
-  goodsList: Array<IGoods>
+  goodsList: Array<IGoods>,
+  attachments: Array<IAttachment>,
 }
 
 export interface IOrderUpdate {

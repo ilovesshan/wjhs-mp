@@ -65,16 +65,16 @@ export function deleteAddressById(id: string) {
 
 // 预约回收 下单
 export function requestRecycleOrders(data: IOrder) {
-  return post(`/recycleOrders`, data)
+  return post(`/wx/recycleOrders`, data)
 }
 
 
 // 预约回收 取消订单
 export function updateRecycleOrdersStatus(data: IOrderUpdate) {
-  return put(`/recycleOrders`, data)
+  return put(`/wx/recycleOrders`, data)
 }
 
 // 预约回收 获取订单列表
 export function requestRecycleOrdersByStatus(status: number) {
-  return get(`/recycleOrders?status=${status}`)
+  return get(`/wx/recycleOrders?status=${status}`)
 }

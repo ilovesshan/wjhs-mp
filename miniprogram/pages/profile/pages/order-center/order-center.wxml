@@ -5,7 +5,7 @@
         <van-empty description="暂无数据" />
       </view>
       <view class="order-list" wx:for="{{ goodsList }}" wx:for-index="indez" wx:for-item="goods" wx:key="indez" title="{{ item.key }}">
-        <view class="order-item">
+        <view class="order-item" data-index="{{ indez }}" bindtap="toOrderDetailPage">
           <view class="order">订单编号：{{ goods.id }}</view>
           <view class="price-weight">
             <view class="money">交易金额：<text class="price-value">￥{{ goods.tradingMoney}}</text></view>

@@ -62,11 +62,19 @@ Page({
     });
   },
 
+
+  // 订单详情
+  toOrderDetailPage(e: WechatMiniprogram.TouchEvent) {
+    const orderInfo = JSON.stringify(this.data.goodsList[e.currentTarget.dataset.index]);
+    wx.navigateTo({
+      url: `/pages/profile/pages/order-center/pages/order-detail/order-detail?orderInfo=${orderInfo}`
+    });
+  },
+
   // 结算订单
   settlementOrder(e: WechatMiniprogram.TouchEvent) {
-    console.log(e.target.dataset.index);
     const orderInfo = JSON.stringify(this.data.goodsList[e.target.dataset.index]);
-  
+
     wx.navigateTo({
       url: `/pages/profile/pages/order-pay/order-pay?orderInfo=${orderInfo}`
     });
