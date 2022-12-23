@@ -79,8 +79,6 @@ Page({
       wx.showToast({ title: "请输入手机号", icon: "none" })
       return;
     }
-    
-    debugger;
     if(!this.data.addressData.latitude || !this.data.addressData.longitude){
       // 根据address获取经纬度
       const result = await getlocationByAddress(address);
