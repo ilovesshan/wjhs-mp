@@ -69,24 +69,39 @@ Page({
   async saveAddressInfo() {
     const { province, city, area, detailAddress } = this.data.addressData;
     const address = province + city + area + detailAddress;
-    getlocationByAddress(address).then(async (res) => {
+
+    if(!this.data.addressData.userName){
+      wx.showToast({ title: "请输入姓名", icon: "none" })
+      return;
+    }
+    
+    if(!this.data.addressData.phone){
+      wx.showToast({ title: "请输入手机号", icon: "none" })
+      return;
+    }
+    
+    debugger;
+    if(!this.data.addressData.latitude || !this.data.addressData.longitude){
+      // 根据address获取经纬度
+      const result = await getlocationByAddress(address);
       this.setData({
-        ['addressData.latitude']: res.lat,
-        ['addressData.longitude']: res.lng,
+        ['addressData.latitude']: result.lat,
+        ['addressData.longitude']: result.lng,
       });
-      let result = null;
-      if (this.data.addressData.id) {
-        // 更新
-        result = await updateAddress(this.data.addressData);
-      } else {
-        result = await insertAddress(this.data.addressData);
-      }
-      if (result.code == 200) {
-        wx.showToast({ title: result.message, icon: "none" })
-      } else {
-        wx.showToast({ title: result.message, icon: "none" })
-      }
-    }).catch(_ => { })
+    }
+
+    let result = null;
+    if (this.data.addressData.id) {
+      // 更新
+      result = await updateAddress(this.data.addressData);
+    } else {
+      result = await insertAddress(this.data.addressData);
+    }
+    if (result.code == 200) {
+      wx.showToast({ title: result.message, icon: "none" })
+    } else {
+      wx.showToast({ title: result.message, icon: "none" })
+    }
   },
 
   openMap() {
