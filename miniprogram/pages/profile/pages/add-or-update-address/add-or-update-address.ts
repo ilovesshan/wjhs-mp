@@ -79,6 +79,12 @@ Page({
       wx.showToast({ title: "请输入手机号", icon: "none" })
       return;
     }
+
+    if(!this.data.addressData.province){
+      wx.showToast({ title: "请输入地址", icon: "none" })
+      return;
+    }
+
     if(!this.data.addressData.latitude || !this.data.addressData.longitude){
       // 根据address获取经纬度
       const result = await getlocationByAddress(address);
