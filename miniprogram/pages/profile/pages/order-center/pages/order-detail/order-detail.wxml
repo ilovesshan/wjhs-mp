@@ -11,7 +11,10 @@
   <view class="item">订单价格：{{ orderInfo.tradingMoney}} </view>
   <view class="item">订单重量：{{ orderInfo.totalWeight}} </view>
   <view class="item">订单积分：{{ orderInfo.totalIntegral}} </view>
-  <view class="item">预是时间：{{ orderInfo.showAppointmentTime}} </view>
+  <view class="item">预约人姓名：{{ orderInfo.address.userName }} </view>
+  <view class="item">预约人电话：{{ orderInfo.address.phone }} </view>
+  <view class="item">预约上门地址：{{ orderInfo.address.province + orderInfo.address.city + orderInfo.address.area + orderInfo.address.detailAddress}} </view>
+  <view class="item">预约时间：{{ orderInfo.showAppointmentTime}} </view>
   <view class="item">下单时间：{{ orderInfo.createTime}} </view>
   <view class="item" wx:if="{{ fileList.length > 0}}">
     备注图片：

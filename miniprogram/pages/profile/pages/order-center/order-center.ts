@@ -62,6 +62,20 @@ Page({
     });
   },
 
+  // 骑手已经到达
+  driverArrival(e: WechatMiniprogram.TouchEvent){
+    Dialog.confirm({
+      title: '订单状态更新',
+      message: '亲亲，确定骑手已经达到指定地点了吗？',
+    })
+      .then(async () => {
+        const result = await updateRecycleOrdersStatus({ id: e.target.dataset.id, status: "6" });
+        if (result.code == 200) {
+          this.requestGoodsList(5);
+        }
+      })
+      .catch(() => { });
+  },
 
   // 订单详情
   toOrderDetailPage(e: WechatMiniprogram.TouchEvent) {
@@ -84,4 +98,5 @@ Page({
   reAppointment() {
     wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
   },
+
 });
