@@ -1,4 +1,5 @@
-<view class="home-container">
+<view class="home-page">
+
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{2000}}" duration="{{500}}">
     <block wx:for="{{swiperList}}" wx:key="index">
@@ -8,11 +9,42 @@
     </block>
   </swiper>
 
-  <view class="padding-style">
-    <!-- 通知公告 -->
-    <view class="notice">
-      <view class="title">通知公告</view>
-      <van-notice-bar wx:for="{{ noticeList }}" data-index="{{ index }}"  wx:key="index"  bindtap="toNoticeDetail" left-icon="volume-o" text="{{ item.subTitle}}" />
+
+  <!-- 下单预约 积分商城 -->
+  <view class="nav">
+    <view bindtap="appointmentTap" class="appointment">
+      <image class="icon" src="../../assets/images/home/yuyue.png"></image>
+      <view class="text">预立即约</view>
     </view>
+    <view bindtap="integralShoopTap" class="integral-shoop">
+      <image class="icon" src="../../assets/images/home/jifenshangcheng.png"></image>
+      <view class="text">积分商城</view>
+    </view>
+  </view>
+
+
+  <!-- 回收统计 -->
+  <view class="overview">
+    <view class="title">
+      <view class="text">回收统计</view>
+      <view class="count">累计：20次</view>
+    </view>
+    <view class="overview-container">
+      <view class="cureent-month">
+        <view class="title">本月回收(KG)</view>
+        <view class="value">20</view>
+      </view>
+      <view class="total-weight">
+        <view class="title">累计回收(KG)</view>
+        <view class="value">45</view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 通知公告 -->
+  <view class="notice">
+    <view class="title">通知公告</view>
+    <van-notice-bar wx:for="{{ noticeList }}" data-index="{{ index }}" wx:key="index" bindtap="toNoticeDetail" left-icon="volume-o" text="{{ item.subTitle}}" />
   </view>
 </view>

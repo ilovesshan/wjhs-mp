@@ -1,10 +1,9 @@
 @import "../../theme.less";
 
 .peofile-container {
-
   .userinfo {
     width: 100vw;
-    height: 200rpx;
+    height: 160rpx;
     background-color: @primaryColor;
     display: flex;
     justify-content: space-between;
@@ -13,17 +12,16 @@
     box-sizing: border-box;
 
     .userinfo-avatar {
-      width: 120rpx;
-      height: 120rpx;
+      width: 100rpx;
+      height: 100rpx;
       border-radius: 60rpx;
-      margin-bottom: 20rpx;
     }
 
     .userinfo-nickname {
-      font-size: 44rpx;
+      font-size: 36rpx;
       color: @whiteColor;
       font-weight: normal;
-      margin-left: -120rpx;
+      margin-left: -160rpx;
     }
 
     .userinfo-detail {
@@ -33,7 +31,7 @@
       align-items: center;
 
       .text {
-        font-size: 34rpx;
+        font-size: 26rpx;
         color: @whiteColor;
       }
 
@@ -42,6 +40,36 @@
         width: 14rpx;
         height: 24rpx;
       }
+    }
+  }
+
+  .profile-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24rpx 0;
+    border-bottom: 1px solid #efefef;
+
+    .icon-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 40rpx;
+        height: 40rpx;
+        margin: 0 30rpx;
+      }
+
+      .text {
+        font-size: 30rpx;
+      }
+    }
+
+    .icon-arraw {
+      width: 30rpx;
+      height: 30rpx;
+      margin-right: 20rpx;
     }
   }
 }

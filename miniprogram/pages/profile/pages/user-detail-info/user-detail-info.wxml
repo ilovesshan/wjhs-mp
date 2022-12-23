@@ -48,8 +48,8 @@
 
 
   <!-- 保存按钮 -->
-  <view class="btns">
-    <view class="save-user-info" bindtap="saveUserInfo">保存</view>
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="saveUserInfo">保存</view>
   </view>
 
 

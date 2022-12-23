@@ -1,5 +1,6 @@
 import Cache from "../utils/cache"
 
+// const BASE_URL: string = "https://1c7f776a.r3.vip.cpolar.cn";
 // const BASE_URL: string = "http://114.55.32.234:8127";
 // const BASE_URL: string = "http://localhost";
 const BASE_URL: string = "http://192.168.1.102";
@@ -52,6 +53,9 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
             wx.navigateTo({
               url: "/pages/auth/auth"
             })
+            // 一般是参数不完整导致
+          } else if (res.statusCode == 400) {
+            wx.showToast({ title: (res.data as any).message, icon: "none" });
           } else {
             wx.showToast({ title: "服务器繁忙" + ((res.data as any).error || (res.data as any)), icon: "none" })
           }

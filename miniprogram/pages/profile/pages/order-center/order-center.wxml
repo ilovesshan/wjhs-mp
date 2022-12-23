@@ -1,0 +1,36 @@
+<view class="order-center-page">
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab wx:for="{{ tabBar }}" wx:key="index" title="{{ item.key }}">
+      <view wx:if="{{ goodsList.length == 0 }}">
+        <van-empty description="暂无数据" />
+      </view>
+      <view class="order-list" wx:for="{{ goodsList }}" wx:for-index="indez" wx:for-item="goods" wx:key="indez" title="{{ item.key }}">
+        <view class="order-item" data-index="{{ indez }}" bindtap="toOrderDetailPage">
+          <view class="order">订单编号：{{ goods.id }}</view>
+          <view class="price-weight">
+            <view class="money">交易金额：<text class="price-value">￥{{ goods.tradingMoney}}</text></view>
+            <view class="weight">重量：<text class="weight-value">{{ goods.tradingMoney}} kg</text></view>
+          </view>
+          <view class="appointment-time">
+            <view>预约时间：{{ goods.showAppointmentTime }}</view>
+          </view>
+          <!-- 待上门、待结算、已完结  状态显示骑手信息-->
+          <view class="driver-info" wx:if="{{ goods.status == '5' ||  goods.status == '6' ||  goods.status == '7' }}">
+            <image class="avatar" src="{{ baseUrl + goods.receiveUser.attachment.url}}" />
+            <view class="name">{{ goods.receiveUser.nickName}}</view>
+            <view class="phone">{{ goods.receiveUser.phone}}</view>
+          </view>
+          <view class="btns">
+            <van-button data-id="{{ goods.id }}" catchtap="cancelOrder" class="cancelOrder" wx:if="{{ goods.status == '4'}}" icon="revoke" size="small" type="danger">取消订单</van-button>
+            <van-button data-phone="{{ goods.receiveUser.phone }}" wx:if="{{ goods.status == '5'}}" catchtap="concatDriver" icon="phone-o" size="small" type="primary">联系骑手</van-button>
+            <van-button data-id="{{ goods.id }}"  wx:if="{{ goods.status == '5'}}" catchtap="driverArrival" icon="location-o" size="small" type="primary">已到达</van-button>
+            <van-button data-index="{{ indez }}" wx:if="{{ goods.status == '6'}}" catchtap="settlementOrder" icon="after-sale" size="small" type="primary">点击结算</van-button>
+            <van-button wx:if="{{ goods.status == '8' || goods.status == '9'}}" catchtap="reAppointment" icon="replay" size="small" type="primary">重新预约</van-button>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+
+  <van-dialog id="van-dialog" />
+</view>

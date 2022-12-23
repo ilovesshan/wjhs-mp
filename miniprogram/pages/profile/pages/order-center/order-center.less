@@ -1,0 +1,81 @@
+@import "../../../../theme.less";
+
+.order-center-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  background-color: @backGroundColor;
+  font-size: 28rpx;
+
+  .order-list {
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin: 20rpx 0;
+    background-color: @whiteColor;
+  }
+
+  .order-item {
+    .order {
+      box-sizing: border-box;
+      padding-bottom: 20rpx;
+      border-bottom: 1px solid #efefef;
+    }
+
+    .price-weight {
+      display: flex;
+      box-sizing: border-box;
+      padding: 10rpx 0;
+
+      .weight {
+        margin-left: 40rpx;
+      }
+
+      .price-value {
+        color: @primaryColor;
+        font-weight: 600;
+      }
+
+      .weight-value {
+        color: red;
+        font-weight: 600;
+      }
+    }
+
+    .appointment-time {
+      box-sizing: border-box;
+      padding-top: 10rpx;
+    }
+
+    .driver-info {
+      box-sizing: border-box;
+      padding: 20rpx 0;
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        width: 60rpx;
+        height: 60rpx;
+        border-radius: 30rpx;
+        margin-right: 20rpx;
+      }
+
+      .name {
+        margin-right: 20rpx;
+      }
+    }
+
+    .btns {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      box-sizing: border-box;
+      padding-top: 15rpx;
+      border-top: 1px solid #efefef;
+
+      button{
+        margin-left: 20rpx;
+        border-radius: 6rpx;
+      }
+    }
+  }
+}

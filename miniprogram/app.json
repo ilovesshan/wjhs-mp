@@ -7,7 +7,14 @@
     "pages/profile/profile",
     "components/webView/webView",
     "pages/home/pages/notice_detail",
-    "pages/profile/pages/user-detail-info/user-detail-info"
+    "pages/profile/pages/user-detail-info/user-detail-info",
+    "pages/profile/pages/address-management/address-management",
+    "pages/profile/pages/add-or-update-address/add-or-update-address",
+    "components/order-success/order-success",
+    "pages/profile/pages/order-center/order-center",
+    "pages/profile/pages/account-management/account-management",
+    "pages/profile/pages/order-pay/order-pay",
+    "pages/profile/pages/order-center/pages/order-detail/order-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -44,5 +51,22 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    },
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation",
+    "onLocationChange",
+    "startLocationUpdate",
+    "choosePoi",
+    "startLocationUpdateBackground",
+    "chooseAddress"
+  ],
   "sitemapLocation": "sitemap.json"
 }

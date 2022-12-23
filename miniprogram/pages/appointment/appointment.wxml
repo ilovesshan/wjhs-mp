@@ -1,2 +1,80 @@
-<!--pages/appointment/appointment.wxml-->
-<text>pages/appointment/appointment.wxml</text>
+<view class="appointment-page">
+
+  <!-- 上门地址 -->
+  <view bindtap="chooseAddress" class="common-item" wx:if="{{ !defaultAddress.id }}">
+    <view class="placeholder">选择上门地址</view>
+    <image class="icon" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <view wx:else="" class="address-info" bindtap="chooseAddress">
+    <view class="username-and-phone">
+      <view class="name">{{defaultAddress.userName }}</view>
+      <view class="phone">{{defaultAddress.phone }}</view>
+    </view>
+
+    <view class="address">
+      <view class="address">{{ defaultAddress.province + defaultAddress.city + defaultAddress.area + defaultAddress.detailAddress}}</view>
+    </view>
+  </view>
+
+
+  <!-- 回收物品 -->
+  <view class="common-item" bindtap="showGoodsPicker" wx:if="{{ chooseRecycleGoodList.length == 0}}">
+    <view class="placeholder">选择回收物品</view>
+    <image class="icon" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <view wx:else="" class="recycle-goods-list">
+    <view class="title">
+      <view>回收商品列表</view>
+      <van-icon name="plus" bindtap="showGoodsPicker" />
+    </view>
+    <view wx:for="{{ chooseRecycleGoodList }}" class="recycle-goods-item" wx:key="index">
+      <view class="name-price">
+        <view class="name">{{item.name }}</view>
+        <text class="price"> ￥{{item.userPrice }}/kg</text>
+      </view>
+      <view class="count">
+        <van-stepper data-index="{{ index }}" value="{{ item.weight }}" step="0.2" decimal-length="{{ 1 }}" bind:change="weightChange" />
+        <van-icon data-index="{{ index }}" bindtap="removeGoods" name="cross" class="remove" />
+      </view>
+    </view>
+    <view class="overview">
+      <view>总重量：{{ orderInfo.totalWeight }}</view>
+      <view>总价格：{{ orderInfo.tradingMoney }}</view>
+      <view>总积分：{{ orderInfo.totalIntegral }}</view>
+    </view>
+  </view>
+
+  <van-popup show="{{ showGoodsPicker }}" position="bottom">
+    <van-picker show-toolbar bind:change="onChange" columns="{{ goodsColumns }}" bind:confirm="onGoodsPickerConfirm" bind:cancel="onGoodsPickerCancel" />
+  </van-popup>
+
+
+  <!-- 预约时间、备注、附件 -->
+  <view class="common-item no-bottom-border" bindtap="showTimerPicker">
+    <view wx:if="{{ appointmentShowTime }}" class="value">{{ appointmentShowTime }} </view>
+    <view wx:else="" class="placeholder">选择预约时间 </view>
+    <image class="icon" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <view class="attachment-upload">
+    <view class="title">
+      <view class="text">添加图片说明</view>
+      <view class="note">最多上传4张</view>
+    </view>
+    <van-uploader catch:delete="deleteImg" file-list="{{ fileList }}" max-count="4" bind:after-read="afterRead" />
+  </view>
+
+  <view class="note-item">
+    <van-field input-align="right" value="{{ orderInfo.note }}" label="添加备注说明" type="textarea" placeholder="非必填" bind:change="noteChange" autosize border="{{ true }}" />
+  </view>
+
+  <van-popup show="{{ showTimePicker }}" position="bottom">
+    <van-picker show-toolbar columns="{{ timeColumns }}" bind:confirm="onTimePickerConfirm" bind:cancel="onTimePickerCancel" />
+  </van-popup>
+
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="submitOrder">立即预约</view>
+  </view>
+</view>

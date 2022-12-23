@@ -1,47 +1,13 @@
 import { requestNotice, requestSwiper } from "../../api/apis";
 import { BASE_URL } from "../../api/request";
-
-interface IAttachment {
-  id: string,
-  url: string,
-  createByUserId: string,
-  createByUserName: string,
-  createByUserType: string,
-  createTime: string,
-}
-
-interface ISwiper {
-  id: string,
-  type: string,
-  attachmentId: string,
-  title: string,
-  subTitle: string,
-  detail: string,
-  link: string,
-  createTime: string
-  attachment: IAttachment
-}
-
-interface INotice {
-  id: string,
-  type: string,
-  title: string,
-  subTitle: string,
-  detail: string,
-  link: string,
-  createTime: string,
-}
-
-interface IHomeData {
-  swiperList: Array<ISwiper>,
-  noticeList: Array<INotice>,
-}
+import { ISwiper } from "../../interfaces/swiper"
+import { INotice } from "../../interfaces/notice"
 
 Page({
   data: {
-    swiperList: [],
-    noticeList: [],
-  } as IHomeData,
+    swiperList: [] as Array<ISwiper>,
+    noticeList: [] as Array<INotice>,
+  },
 
   onLoad() {
     this.getSwiper();
@@ -68,7 +34,7 @@ Page({
     });
   },
 
-  toWebview(e: any) {
+  toWebview(e: WechatMiniprogram.TouchEvent) {
     const index = e.target.dataset.index;
     const pageTitle = this.data.swiperList[index].title;
     const pagePath = this.data.swiperList[index].link;
@@ -78,7 +44,7 @@ Page({
   },
 
 
-  toNoticeDetail(e: any) {
+  toNoticeDetail(e: WechatMiniprogram.TouchEvent) {
     const index = e.target.dataset.index;
     const { noticeList } = this.data;
     const title = noticeList[index].title;
@@ -87,5 +53,17 @@ Page({
     wx.navigateTo({
       url: `/pages/home/pages/notice_detail?title=${title}&subTitle=${subTitle}&detail=${detail}`,
     });
-  }
+  },
+
+  // 立即预约
+  appointmentTap() {
+    wx.switchTab({
+      url: "/pages/appointment/appointment"
+    });
+  },
+
+  // 积分商城
+  integralShoopTap() {
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
 })

@@ -1,0 +1,55 @@
+@import "../../../../theme.less";
+
+.address-management-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: @backGroundColor;
+
+  .address-item {
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: @whiteColor;
+    margin: 20rpx 0;
+    padding: 30rpx;
+
+    .row1 {
+      .name {
+        float: left;
+      }
+
+      .phone {
+        float: left;
+        margin-left: 50rpx;
+      }
+
+      .tag {
+        float: right;
+      }
+    }
+
+    .row2 {
+      padding: 10px 0;
+      clear: both;
+      border-bottom: 1px solid #efefef;
+    }
+
+    .row3 {
+      margin-top: 20rpx;
+      overflow: hidden;
+
+      .edit-text,
+      .delete-text,
+      .use-text {
+        float: right;
+        color: #222222;
+        font-size: 26rpx;
+      }
+
+      .edit-text,
+      .use-text {
+        margin-left: 50rpx;
+
+      }
+    }
+  }
+}

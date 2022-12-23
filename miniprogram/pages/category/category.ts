@@ -1,5 +1,6 @@
 import { BASE_URL } from "../../api/request";
 import { requesRecycleGoods } from "../../api/apis";
+import { IRecycleGoods } from "../../interfaces/recycleGoods";
 
 Page({
   data: {
@@ -9,7 +10,7 @@ Page({
     kw: "",
     searchResult: [1],
     navItems: [],
-    recycleGoodList: [],
+    recycleGoodList: [] as Array<IRecycleGoods>,
   },
 
   onLoad() {
@@ -41,7 +42,7 @@ Page({
     }
 
     const searchResult: Array<any> = [];
-    this.data.recycleGoodList.forEach((item: { name: String, recycleGoods: [] }) => {
+    this.data.recycleGoodList.forEach(item => {
       if (item.name.includes(e.detail)) {
         searchResult.push(...item.recycleGoods);
       } else {

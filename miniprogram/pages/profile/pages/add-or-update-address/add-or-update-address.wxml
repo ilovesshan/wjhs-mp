@@ -1,0 +1,55 @@
+<view class="add-or-update-address-page">
+  <!-- 姓名 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>姓&nbsp; &nbsp; &nbsp;&nbsp; 名</text>
+    <input placeholder-class="item-input-placeholder" value="{{ addressData.userName }}" bindinput="binduserName" class="item-input" placeholder="请输入" type="text"></input>
+  </view>
+
+  <!-- 手机号 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>手&nbsp;机&nbsp; 号</text>
+    <input placeholder-class="item-input-placeholder" value="{{ addressData.phone }}" bindinput="bindPhone" class="item-input" placeholder="请输入" type="text"></input>
+  </view>
+
+  <!-- 省选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>省&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</text>
+    <input placeholder-class="item-input-placeholder" bindtap="provinceAndCityChoose" value="{{ addressData.province }}" disabled="true" class="item-input" placeholder="请选择所在省份" type="text"></input>
+  </view>
+
+  <!-- 市选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>市&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+    <input placeholder-class="item-input-placeholder" bindtap="provinceAndCityChoose" value="{{ addressData.city }}" disabled="true" class="item-input" placeholder="请选择所在市区" type="text"></input>
+  </view>
+
+  <!-- 县/区选择 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>县/区&nbsp;&nbsp;&nbsp; &nbsp;</text>
+    <input placeholder-class="item-input-placeholder" bindtap="provinceAndCityChoose" value="{{ addressData.area }}" disabled="true" class="item-input" placeholder="请选择所在县/区" type="text"></input>
+  </view>
+
+  <!-- 详细地址 -->
+  <view class="form-item">
+    <text class="item-label" decode='true'>详细地址</text>
+    <input  placeholder-class="item-input-placeholder" value="{{ addressData.detailAddress }}" bindinput="bindDetailAddress" class="item-input" placeholder="请输入"></input >
+    <van-icon name="guide-o" bindtap="openMap" />
+  </view>
+
+  <!-- 省市县选择 弹出框 -->
+  <van-popup show="{{ showCityPicker }}" position="bottom" custom-style="height: 50%;">
+    <van-area bind:confirm="onCityPickerConfirm" bind:cancel="onCityPickerCancel" area-list="{{ areaList }}" />
+  </van-popup>
+
+  <view class="form-item default-address">
+    <view class="item-label">默认地址</view>
+    <switch bindchange="defaultAddressBindchange" checked="{{ addressData.isDefault == '18'  }}"></switch>
+  </view>
+
+
+
+  <!-- 保存按钮 -->
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="saveAddressInfo">保存</view>
+  </view>
+</view>

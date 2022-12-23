@@ -1,0 +1,26 @@
+<view class="order-detail-page">
+  <view class="item">订单编号：{{ orderInfo.id}}</view>
+  <view class="item">订单状态：<van-tag type="danger" size="large">{{ orderInfo.statusText }}</van-tag>
+  </view>
+  <view class="item">
+    商品列表：
+    <view class="goods-card" wx:for="{{ orderInfo.recycleOrderDetails }}" wx:key="index">
+      <van-card num="{{  item.weight }}(KG)" price="{{ item.recycleGoods.userPrice}}" desc="{{ item.recycleGoods.name }}" thumb="{{ baseurl + item.recycleGoods.attachment.url }}" />
+    </view>
+  </view>
+  <view class="item">订单价格：{{ orderInfo.tradingMoney}} </view>
+  <view class="item">订单重量：{{ orderInfo.totalWeight}} </view>
+  <view class="item">订单积分：{{ orderInfo.totalIntegral}} </view>
+  <view class="item">预约人姓名：{{ orderInfo.address.userName }} </view>
+  <view class="item">预约人电话：{{ orderInfo.address.phone }} </view>
+  <view class="item">预约上门地址：{{ orderInfo.address.province + orderInfo.address.city + orderInfo.address.area + orderInfo.address.detailAddress}} </view>
+  <view class="item">预约时间：{{ orderInfo.showAppointmentTime}} </view>
+  <view class="item">下单时间：{{ orderInfo.createTime}} </view>
+  <view class="item" wx:if="{{ fileList.length > 0}}">
+    备注图片：
+    <view class="note-attachment">
+      <van-uploader deletable="{{ false }}" show-upload="{{ false }}" file-list="{{ fileList }}" />
+    </view>
+  </view>
+  <view class="item" wx:if="{{ orderInfo.note}}">备注信息：{{ orderInfo.note}} </view>
+</view>

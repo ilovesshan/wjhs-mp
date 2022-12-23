@@ -1,4 +1,5 @@
 <view class="peofile-container">
+  <!-- 个人信息 -->
   <view class="userinfo" bindtap="toUserDetailInfoPage">
     <image class="userinfo-avatar" src="{{ userInfo.avatarUrl.length>0 ? BASE_URL + userInfo.avatarUrl : '/assets/images/profile/default-user-avatar.png' }}"></image>
     <text class="userinfo-nickname">{{ userInfo.nickName || '网捷回收' }}</text>
@@ -6,5 +7,59 @@
       <text class="text">详细</text>
       <image class="icon" src="../../assets/images/profile/right-arrow.png"></image>
     </view>
+  </view>
+
+  <!-- 账户管理 -->
+  <view class="profile-item" bindtap="toAccountManagementPage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/zhanghuguanli.png"></image>
+      <text class="text">账户管理</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <!-- 地址管理 -->
+  <view class="profile-item" bindtap="toAddressManagementPage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/dizhiguanli.png"></image>
+      <text class="text">地址管理</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <!-- 兑换中心 -->
+  <view class="profile-item" bindtap="toExchangeCenterPage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/duihuanzhongxin.png"></image>
+      <text class="text">兑换中心</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <!-- 订单中心 -->
+  <view class="profile-item" bindtap="toOrderCenterPage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/dingdanzhongxin.png"></image>
+      <text class="text">订单中心</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <!-- 联系客服 -->
+  <view class="profile-item" bindtap="toConcatServicePage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/lianxikefu.png"></image>
+      <text class="text">联系客服</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
+  <!-- 意见反馈 -->
+  <view class="profile-item" bindtap="toSuggestFeedbackPage">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/yijianfankui.png"></image>
+      <text class="text">意见反馈</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
   </view>
 </view>

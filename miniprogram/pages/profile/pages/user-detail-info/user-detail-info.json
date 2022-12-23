@@ -4,5 +4,6 @@
     "van-area": "@vant/weapp/area/index",
     "van-uploader": "@vant/weapp/uploader/index",
     "van-icon": "@vant/weapp/icon/index"
-  }
+  },
+  "navigationBarTitleText": "个人详情"
 }

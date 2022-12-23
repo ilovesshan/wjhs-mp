@@ -1,1 +1,156 @@
-/* pages/appointment/appointment.wxss */
+@import "../../theme.less";
+
+.appointment-page {
+  background-color: @backGroundColor;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  .common-item {
+    margin-top: 20rpx;
+    height: 100rpx;
+    border-radius: 14rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background-color: @whiteColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+
+    &.no-bottom-border {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+
+    .placeholder {
+      color: #333333;
+      font-size: 28rpx;
+    }
+
+    .value {
+      color: #333333;
+      font-size: 28rpx;
+      font-weight: 700;
+    }
+
+    .icon {
+      width: 36rpx;
+      height: 36rpx;
+    }
+  }
+
+
+  .address-info {
+    margin-top: 20rpx;
+    border-radius: 14rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    background-color: @whiteColor;
+
+    .username-and-phone {
+      box-sizing: border-box;
+      padding: 10rpx;
+      border-bottom: 1px solid #eeeeee;
+      display: flex;
+      font-weight: 700;
+
+      .phone {
+        margin-left: 80rpx;
+      }
+    }
+
+    .address {
+      margin-top: 20rpx;
+    }
+  }
+
+  .recycle-goods-list {
+    margin: 20rpx 0;
+    background-color: @whiteColor;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+    .title {
+      padding: 20rpx 0;
+      border-bottom: 1px solid #efefef;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recycle-goods-item {
+      display: flex;
+      padding: 20rpx 0;
+      justify-content: space-between;
+
+      .name-price {
+        display: flex;
+
+        .name {
+          width: 120rpx;
+          font-weight: 700;
+        }
+
+        .price {
+          color: red;
+          margin-left: 20rpx;
+        }
+      }
+
+
+
+      .count {
+        display: flex;
+        align-items: center;
+
+
+
+        .remove {
+          margin-left: 40rpx;
+        }
+      }
+    }
+
+    .overview {
+      padding: 20rpx 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 26rpx;
+    }
+  }
+
+  .attachment-upload {
+    width: 100wv;
+    padding: 20rpx 30rpx;
+    background-color: @whiteColor;
+
+    .title {
+      box-sizing: border-box;
+      display: flex;
+      padding: 20rpx 0;
+      align-items: center;
+      justify-content: space-between;
+
+      .text {
+        color: #333333;
+        font-size: 28rpx;
+      }
+
+      .note {
+        margin-left: 20rpx;
+        font-size: 26rpx;
+        color: #c8c9cc;
+      }
+    }
+  }
+
+  .note-item {
+    border-radius: 14rpx;
+    overflow: hidden;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
