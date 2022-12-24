@@ -8,7 +8,7 @@ export function getlocationByAddress(address: string): Promise<{ lat: number, ln
         }
       },
       fail(err) {
-        wx.showToast({ title: "抱歉不能识别详细地址，您也可以更换地址或者联系联系客服", icon: "none" });
+        wx.showToast({ title: "抱歉不能识别的地址，您也可以更换地址或者联系联系客服", icon: "none" });
         reject(err);
       }
     });
