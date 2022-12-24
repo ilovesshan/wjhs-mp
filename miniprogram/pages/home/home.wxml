@@ -27,16 +27,16 @@
   <view class="overview">
     <view class="title">
       <view class="text">回收统计</view>
-      <view class="count">累计：20次</view>
+      <view class="count">累计：0次</view>
     </view>
     <view class="overview-container">
       <view class="cureent-month">
         <view class="title">本月回收(KG)</view>
-        <view class="value">20</view>
+        <view class="value">0</view>
       </view>
       <view class="total-weight">
         <view class="title">累计回收(KG)</view>
-        <view class="value">45</view>
+        <view class="value">0</view>
       </view>
     </view>
   </view>

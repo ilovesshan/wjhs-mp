@@ -81,7 +81,7 @@ Page({
     }
 
     if(!this.data.addressData.province){
-      wx.showToast({ title: "请输入地址", icon: "none" })
+      wx.showToast({ title: "请选择地址", icon: "none" })
       return;
     }
 

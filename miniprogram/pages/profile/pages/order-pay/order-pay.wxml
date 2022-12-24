@@ -5,17 +5,20 @@
   </view>
 
   <view class="order-detail-info">
-    <view class="order-id">
-      订单编号：<text>{{ orderPayInfo.orderId}}</text>
-    </view>
-    <view class="appointment-time">
-      预约时间：<text>{{ orderPayInfo.showAppointmentTime}}</text>
+    <view class="order-weight">
+      订单积分：<text>{{ orderPayInfo.integral}}</text>
     </view>
     <view class="order-money">
       订单价格(元)：<text>{{ orderPayInfo.money}}</text>
     </view>
     <view class="order-weight">
       订单重量(KG)：<text>{{ orderPayInfo.weight}}</text>
+    </view>
+    <view class="order-id">
+      订单编号：<text>{{ orderPayInfo.orderId}}</text>
+    </view>
+    <view class="appointment-time">
+      预约时间：<text>{{ orderPayInfo.showAppointmentTime}}</text>
     </view>
   </view>
 </view>
