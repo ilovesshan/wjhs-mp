@@ -54,6 +54,15 @@
     <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
   </view>
 
+    <!-- 推广应用 -->
+    <view class="profile-item" bindtap="shareWxMp">
+    <view class="icon-text">
+      <image class="icon" src="../../assets/images/profile/fenxiangxiao.png"></image>
+      <text class="text">推广应用</text>
+    </view>
+    <image class="icon-arraw" src="../../assets/images/profile/arrow-right-grey.png"></image>
+  </view>
+
   <!-- 意见反馈 -->
   <view class="profile-item" bindtap="toSuggestFeedbackPage">
     <view class="icon-text">

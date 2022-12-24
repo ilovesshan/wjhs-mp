@@ -29,6 +29,12 @@ Page({
   },
 
 
+  // 推广应用
+  shareWxMp() {
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
+
+
   // 地址管理
   toAddressManagementPage() {
     wx.navigateTo({
@@ -38,7 +44,9 @@ Page({
 
 
   // 兑换中心
-  toExchangeCenterPage() { },
+  toExchangeCenterPage() { 
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
 
 
   // 订单中心
@@ -50,9 +58,13 @@ Page({
 
 
   // 联系客服
-  toConcatServicePage() { },
+  toConcatServicePage() { 
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
 
 
   // 意见反馈
-  toSuggestFeedbackPage() { },
+  toSuggestFeedbackPage() { 
+    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  },
 })
