@@ -1,3 +1,28 @@
 <view class="account-mangement-page">
+  <view class="balance">
+    <view class="value">{{ currentIndex == 0 ? balanceData.balance : 0 }} </view>
+    <view class="text">{{ currentIndex == 0 ? '当前余额' : '当前积分' }} </view>
+  </view>
 
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="我的余额">
+      <van-empty wx:if="{{ balanceData.accountRecords.length == 0 }}" description="暂无流水记录" />
+      <view class="record-list">
+        <view wx:for="{{ balanceData.accountRecords }}" wx:key="index">
+          <van-panel class="income" wx:if="{{ item.payType }}" title="回收商品收入(平台交易)" desc="{{ item.createTime }}" status="+ {{ item.tradingMoney }}">
+          </van-panel>
+          <van-panel class="outcome" wx:else="" title="积分商品支出(平台交易)" desc="{{ item.createTime }}" status="- {{ item.tradingMoney }}">
+          </van-panel>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="我的积分">
+      <van-empty description="暂无流水记录" />
+    </van-tab>
+  </van-tabs>
+
+  <!-- 余额提现按钮 -->
+  <view  wx:if="{{ currentIndex == 0 }}" class="bottom-btn-container">
+    <view class="btn" bindtap="balanceExpression">余额提现</view>
+  </view>
 </view>

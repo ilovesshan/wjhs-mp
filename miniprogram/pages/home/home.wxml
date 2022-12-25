@@ -24,18 +24,18 @@
 
 
   <!-- 回收统计 -->
-  <view class="overview">
+  <view class="contribution">
     <view class="title">
-      <view class="text">回收统计</view>
+      <view class="text">我的贡献</view>
       <view class="count">累计：0次</view>
     </view>
-    <view class="overview-container">
+    <view class="contribution-container">
       <view class="cureent-month">
-        <view class="title">本月回收(KG)</view>
+        <view class="title">本月贡献(KG)</view>
         <view class="value">0</view>
       </view>
       <view class="total-weight">
-        <view class="title">累计回收(KG)</view>
+        <view class="title">累计贡献(KG)</view>
         <view class="value">0</view>
       </view>
     </view>

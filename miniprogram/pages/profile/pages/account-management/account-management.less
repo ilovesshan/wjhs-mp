@@ -4,4 +4,43 @@
   width: 100vw;
   height: 100vh;
   background-color: @backGroundColor;
+
+  .balance {
+    width: 100vw;
+    height: 220rpx;
+    background: -webkit-linear-gradient(65deg, @primaryColor, #3bb2b8);
+    text-align: center;
+    overflow: hidden;
+
+    .value {
+      font-size: 60rpx;
+      font-weight: 700;
+      color: @whiteColor;
+      margin-top: 40rpx;
+    }
+
+    .text {
+      font-size: 32rpx;
+      color: @whiteColor;
+      margin-top: 20rpx;
+    }
+  }
+
+  .income .van-cell__value,
+  .value-class {
+    color: @primaryColor;
+    font-weight: 700;
+    font-size: 32rpx;
+  }
+
+  .income .van-cell__title,
+  .title-class {
+    color: @primaryColor;
+  }
+
+  .outcome .van-cell__value,
+  .value-class {
+    color: rgb(50, 50, 51);
+    font-size: 32rpx;
+  }
 }

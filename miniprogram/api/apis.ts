@@ -78,3 +78,9 @@ export function updateRecycleOrdersStatus(data: IOrderUpdate) {
 export function requestRecycleOrdersByStatus(status: number) {
   return get(`/wx/recycleOrders?status=${status}`)
 }
+
+
+// 查询余额和流水记录
+export function requestBalanceAndRecord(userId: string) {
+  return get(`/accounts/${userId}`)
+}
