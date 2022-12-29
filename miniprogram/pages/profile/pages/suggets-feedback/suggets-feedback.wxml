@@ -13,6 +13,6 @@
   </view>
 
   <view class="bottom-btn-container">
-    <view class="btn" bindtap="feedback">反馈</view>
+    <view class="btn" bindtap="feedback">提交</view>
   </view>
 </view>
