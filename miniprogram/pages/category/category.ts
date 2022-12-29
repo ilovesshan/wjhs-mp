@@ -14,14 +14,20 @@ Page({
   },
 
   onLoad() {
-    requesRecycleGoods().then(res => {
-      if (res.code == 200 && res.data) {
+    this.getRecycleGoods();
+  },
+
+  getRecycleGoods(): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      const result = await requesRecycleGoods();
+      if (result.code == 200 && result.data) {
         this.setData({
-          recycleGoodList: res.data,
-          navItems: res.data.map((goodsType: { name: any; }) => ({ text: goodsType.name }))
-        })
+          recycleGoodList: result.data,
+          navItems: result.data.map((goodsType: { name: any; }) => ({ text: goodsType.name }))
+        });
+        resolve(true);
       }
-    })
+    });
   },
 
   onClickNav(event: { detail: { index: any; }; }) {
@@ -63,5 +69,9 @@ Page({
     this.setData({
       isSearch: false,
     })
-  }
+  },
+
+  onPullDownRefresh() {
+    this.getRecycleGoods().then(_ => wx.stopPullDownRefresh());
+  },
 })

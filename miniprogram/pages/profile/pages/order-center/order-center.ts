@@ -7,6 +7,7 @@ Page({
   data: {
     active: 0,
     show: false,
+    orderStatus: 4,
     baseUrl: BASE_URL,
     goodsList: [] as Array<IGoods>,
     tabBar: [
@@ -26,17 +27,23 @@ Page({
   onChange(event: WechatMiniprogram.TouchEvent) {
     const status = Number(event.detail.name) + 4;
     this.requestGoodsList(status);
+    this.setData({
+      orderStatus: status,
+    })
   },
 
   // 获取列表
-  async requestGoodsList(status: number) {
-    const result = await requestRecycleOrdersByStatus(status);
-    const data = result.data.map((order: IOrder) => {
-      order.showAppointmentTime = order.appointmentBeginTime.substring(0, 16) + " - " + order.appointmentEndTime.substring(11, 16);
-      return order;
-    })
-    this.setData({
-      goodsList: data,
+  async requestGoodsList(status: number): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      const result = await requestRecycleOrdersByStatus(status);
+      const data = result.data.map((order: IOrder) => {
+        order.showAppointmentTime = order.appointmentBeginTime.substring(0, 16) + " - " + order.appointmentEndTime.substring(11, 16);
+        return order;
+      })
+      this.setData({
+        goodsList: data,
+      })
+      resolve(true);
     });
   },
 
@@ -63,7 +70,7 @@ Page({
   },
 
   // 骑手已经到达
-  driverArrival(e: WechatMiniprogram.TouchEvent){
+  driverArrival(e: WechatMiniprogram.TouchEvent) {
     Dialog.confirm({
       title: '订单状态更新',
       message: '亲亲，确定骑手已经达到指定地点了吗？',
@@ -99,4 +106,7 @@ Page({
     wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
   },
 
+  onPullDownRefresh() {
+    this.requestGoodsList(this.data.orderStatus).then(_ => wx.stopPullDownRefresh());
+  },
 });
