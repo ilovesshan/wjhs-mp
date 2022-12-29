@@ -1,17 +1,20 @@
-import { requestNotice, requestSwiper } from "../../api/apis";
+import { requestContribution, requestNotice, requestSwiper } from "../../api/apis";
 import { BASE_URL } from "../../api/request";
 import { ISwiper } from "../../interfaces/swiper"
 import { INotice } from "../../interfaces/notice"
+import { IContribution } from "miniprogram/interfaces/contribution";
 
 Page({
   data: {
     swiperList: [] as Array<ISwiper>,
     noticeList: [] as Array<INotice>,
+    contribution: {} as Array<IContribution>,
   },
 
   onLoad() {
     this.getSwiper();
     this.getNotice();
+    this.geContribution();
   },
 
   getSwiper() {
@@ -19,10 +22,10 @@ Page({
       const list = res.data.map((item: ISwiper) => {
         item.attachment.url = BASE_URL + item.attachment.url;
         return item;
-      })
+      });
       this.setData({
         swiperList: list,
-      })
+      });
     });
   },
 
@@ -30,8 +33,18 @@ Page({
     requestNotice().then(res => {
       this.setData({
         noticeList: res.data.slice(0, 2),
-      })
+      });
     });
+  },
+
+  geContribution(): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      const result = await requestContribution();
+      this.setData({
+        contribution: result.data,
+      });
+      resolve(true);
+    })
   },
 
   toWebview(e: WechatMiniprogram.TouchEvent) {
@@ -66,4 +79,10 @@ Page({
   integralShoopTap() {
     wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
   },
+
+  onPullDownRefresh() {
+    this.geContribution().then(_ => {
+      wx.stopPullDownRefresh();
+    });
+  }
 })

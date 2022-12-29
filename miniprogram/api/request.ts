@@ -1,9 +1,9 @@
 import Cache from "../utils/cache"
 
-// const BASE_URL: string = "https://1c7f776a.r3.vip.cpolar.cn";
+// const BASE_URL: string = "https://2ca983d1.vip.cpolar.cn";
 // const BASE_URL: string = "http://114.55.32.234:8127";
-// const BASE_URL: string = "http://localhost";
-const BASE_URL: string = "http://192.168.1.102";
+const BASE_URL: string = "http://localhost";
+// const BASE_URL: string = "http://192.168.1.105";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
 type ALLOW_DATA = string | Map<String, any> | ArrayBuffer | any;
@@ -42,6 +42,7 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
         if (res.statusCode == 200) {
           resolve(res.data)
         } else {
+          debugger
           // 请求失败情况(业务逻辑)
           if (res.statusCode == 401) {
             // 未授权

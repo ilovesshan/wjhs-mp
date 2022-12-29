@@ -21,6 +21,11 @@ export function requestSwiper() {
   return get(`/swiper?type=31`, {}, false)
 }
 
+// 获取我的贡献接口
+export function requestContribution() {
+  return get(`/recycle/statistical?orderType=10&userType=1`, {}, false)
+}
+
 // 获取通知公告接口
 export function requestNotice() {
   return get(`/notice?type=31`, {}, false)

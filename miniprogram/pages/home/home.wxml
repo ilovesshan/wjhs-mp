@@ -27,20 +27,19 @@
   <view class="contribution">
     <view class="title">
       <view class="text">我的贡献</view>
-      <view class="count">累计：0次</view>
+      <view class="count">累计：{{ contribution.totalCount }}次</view>
     </view>
     <view class="contribution-container">
       <view class="cureent-month">
         <view class="title">本月贡献(KG)</view>
-        <view class="value">0</view>
+        <view class="value">{{ contribution.currentMonthWeight }}</view>
       </view>
       <view class="total-weight">
         <view class="title">累计贡献(KG)</view>
-        <view class="value">0</view>
+        <view class="value">{{ contribution.accumulativeWeight }}</view>
       </view>
     </view>
   </view>
-
 
   <!-- 通知公告 -->
   <view class="notice">
