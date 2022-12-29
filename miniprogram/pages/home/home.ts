@@ -38,7 +38,7 @@ Page({
   },
 
   geContribution(): Promise<boolean> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve, _) => {
       const result = await requestContribution();
       this.setData({
         contribution: result.data,
