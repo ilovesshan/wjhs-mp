@@ -44,7 +44,7 @@ Page({
 
 
   // 兑换中心
-  toExchangeCenterPage() { 
+  toExchangeCenterPage() {
     wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
   },
 
@@ -58,13 +58,15 @@ Page({
 
 
   // 联系客服
-  toConcatServicePage() { 
+  toConcatServicePage() {
     wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
   },
 
 
   // 意见反馈
-  toSuggestFeedbackPage() { 
-    wx.showToast({ title: "功能还未上线，敬请期待！", icon: "none" });
+  toSuggestFeedbackPage() {
+    wx.navigateTo({
+      url: "/pages/profile/pages/feedback-record/feedback-record"
+    });
   },
 })

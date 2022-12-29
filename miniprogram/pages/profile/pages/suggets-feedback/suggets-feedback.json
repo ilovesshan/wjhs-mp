@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index"
+  },
+  "navigationBarTitleText": "意见反馈"
+}

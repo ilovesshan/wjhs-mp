@@ -2,7 +2,7 @@ import { requestContribution, requestNotice, requestSwiper } from "../../api/api
 import { BASE_URL } from "../../api/request";
 import { ISwiper } from "../../interfaces/swiper"
 import { INotice } from "../../interfaces/notice"
-import { IContribution } from "miniprogram/interfaces/contribution";
+import { IContribution } from "../../interfaces/contribution";
 
 Page({
   data: {

@@ -1,0 +1,19 @@
+<view class="feedback-record-page">
+  <van-empty wx:if="{{ feedbackList.length==0 }}" description="暂无数据" />
+  <view wx:else="">
+    <view wx:for="{{ feedbackList }}" wx:key="index">
+      <view wx:if="{{ item.isSolve == '37' }}">
+        <van-panel class="todo" title="{{ item.feedbackTitle}}" desc="{{ item.feedbackDetail }}" status="待处理">
+        </van-panel>
+      </view>
+      <view wx:else="">
+        <van-panel class="done" title="{{ item.feedbackTitle}}" desc="{{ item.feedbackDetail }}" status="已处理">
+        </van-panel>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="addFeedback">添加反馈</view>
+  </view>
+</view>

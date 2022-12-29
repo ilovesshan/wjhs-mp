@@ -1,3 +1,4 @@
+import { IUserFeedbackCreate } from "../interfaces/Userfeedback";
 import { IOrder, IOrderUpdate } from "../interfaces/order";
 import { get, post, put, delete_ } from "./request";
 
@@ -33,7 +34,7 @@ export function requestNotice() {
 
 //更新用户信息接口
 export function requesUpdateUser(data: any) {
-  return post(`/wx/users`, data, true)
+  return post(`/wx/users`, data)
 }
 
 // 获取回收商品
@@ -88,4 +89,15 @@ export function requestRecycleOrdersByStatus(status: number) {
 // 查询余额和流水记录
 export function requestBalanceAndRecord(userId: string) {
   return get(`/accounts/${userId}`)
+}
+
+
+// 新增用户反馈
+export function requestUserFeedback(data: IUserFeedbackCreate) {
+  return post(`/feedback`, data)
+}
+
+// 获取用户反馈列表
+export function selectUserFeedbackList(userId: string) {
+  return get(`/feedback/${userId}`)
 }

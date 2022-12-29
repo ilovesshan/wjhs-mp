@@ -1,0 +1,18 @@
+<view class="suggets-feedback-page">
+  <van-cell-group>
+    <van-field label="反馈标题" value="{{ feedbackData.feedbackTitle }}" placeholder="输入反馈标题" bind:change="onfeedbackTitleChange" />
+  </van-cell-group>
+
+  <van-cell-group>
+    <van-field value="{{ feedbackData.feedbackDetail }}" label="反馈详情" type="textarea" placeholder="输入反馈详情" autosize bind:change="onfeedbackDetailChange" />
+  </van-cell-group>
+
+  <view class="attachment-container">
+    <view class="title">反馈图片</view>
+    <van-uploader class="uploader" catch:delete="deleteImg" file-list="{{ fileList }}" max-count="1" bind:after-read="afterRead" />
+  </view>
+
+  <view class="bottom-btn-container">
+    <view class="btn" bindtap="feedback">反馈</view>
+  </view>
+</view>

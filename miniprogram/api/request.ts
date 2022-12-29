@@ -42,7 +42,6 @@ const baseRequest = (uri: string, method: ALLOW_METHODS, data?: ALLOW_DATA, load
         if (res.statusCode == 200) {
           resolve(res.data)
         } else {
-          debugger
           // 请求失败情况(业务逻辑)
           if (res.statusCode == 401) {
             // 未授权

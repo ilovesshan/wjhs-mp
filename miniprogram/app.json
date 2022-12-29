@@ -14,7 +14,9 @@
     "pages/profile/pages/order-center/order-center",
     "pages/profile/pages/account-management/account-management",
     "pages/profile/pages/order-pay/order-pay",
-    "pages/profile/pages/order-center/pages/order-detail/order-detail"
+    "pages/profile/pages/order-center/pages/order-detail/order-detail",
+    "pages/profile/pages/suggets-feedback/suggets-feedback",
+    "pages/profile/pages/feedback-record/feedback-record"
   ],
   "window": {
     "backgroundTextStyle": "light",
