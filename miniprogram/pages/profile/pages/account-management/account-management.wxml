@@ -1,6 +1,6 @@
 <view class="account-mangement-page">
   <view class="balance">
-    <view class="value">{{ currentIndex == 0 ? balanceData.balance : 0 }} </view>
+    <view class="value">{{ currentIndex == 0 ? balanceData.balance : initegralData.integral }} </view>
     <view class="text">{{ currentIndex == 0 ? '当前余额' : '当前积分' }} </view>
   </view>
 
@@ -17,7 +17,15 @@
       </view>
     </van-tab>
     <van-tab title="我的积分">
-      <van-empty description="暂无流水记录" />
+      <van-empty wx:if="{{ initegralData.integralRecords.length == 0 }}" description="暂无流水记录" />
+      <view class="record-list">
+        <view wx:for="{{ initegralData.integralRecords }}" wx:key="index">
+          <van-panel class="income" wx:if="{{ item.payStatus == '36' }}" title="回收商品收入(平台交易)" desc="{{ item.createTime }}" status="+ {{ item.tradingIntegral }}">
+          </van-panel>
+          <van-panel class="outcome" wx:else="" title="积分商品支出(平台交易)" desc="{{ item.createTime }}" status="- {{ item.tradingIntegral }}">
+          </van-panel>
+        </view>
+      </view>
     </van-tab>
   </van-tabs>
 

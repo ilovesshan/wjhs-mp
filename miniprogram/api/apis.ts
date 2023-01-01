@@ -91,6 +91,11 @@ export function requestBalanceAndRecord(userId: string) {
   return get(`/accounts/${userId}`)
 }
 
+// 查询积分和流水记录
+export function requestIntegralAndRecord(userId: string) {
+  return get(`/wx/integrals//${userId}`)
+}
+
 
 // 新增用户反馈
 export function requestUserFeedback(data: IUserFeedbackCreate) {

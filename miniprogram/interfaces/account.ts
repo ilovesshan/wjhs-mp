@@ -24,3 +24,24 @@ export interface IBalanceRecord {
   isDelete: string,
   createTime: string,
 }
+
+
+export interface IIntegral {
+  id: string,
+  userId: string,
+  integral: number,
+  isDelete: string,
+  integralRecords: Array<IIntegralRecord>,
+  createTime: string,
+}
+
+
+export interface IIntegralRecord {
+  id: string,
+  userId: string,
+  orderId: string,
+  payStatus: string,
+  tradingIntegral: number,
+  isDelete: string,
+  createTime:  string,
+}

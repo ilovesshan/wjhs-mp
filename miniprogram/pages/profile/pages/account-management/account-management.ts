@@ -1,12 +1,13 @@
 import cache from "../../../../utils/cache";
-import { requestBalanceAndRecord } from "../../../../api/apis";
-import { IBalance } from "../../../../interfaces/account";
+import { requestBalanceAndRecord, requestIntegralAndRecord } from "../../../../api/apis";
+import { IBalance, IIntegral } from "../../../../interfaces/account";
 
 Page({
   data: {
     active: 0,
     currentIndex: 0,
     balanceData: {} as IBalance,
+    initegralData: {} as IIntegral,
   },
 
   onLoad() {
@@ -40,7 +41,12 @@ Page({
   },
 
   // 查询积分信息
-  requestIntegralData() { },
+  async requestIntegralData() { 
+    const result = await requestIntegralAndRecord(cache.get("userInfo")["id"]);
+    this.setData({
+      initegralData: result.data,
+    });
+  },
 
   // 余额提现
   balanceExpression(){
