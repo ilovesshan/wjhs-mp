@@ -1,8 +1,8 @@
 import Cache from "../utils/cache"
 
 // const BASE_URL: string = "https://2ca983d1.vip.cpolar.cn";
-// const BASE_URL: string = "http://114.55.32.234:8127";
-const BASE_URL: string = "http://localhost";
+const BASE_URL: string = "http://111.67.203.7:8127";
+// const BASE_URL: string = "http://localhost";
 // const BASE_URL: string = "http://192.168.1.105";
 
 type ALLOW_METHODS = "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
